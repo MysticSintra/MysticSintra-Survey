@@ -1,604 +1,164 @@
 <div id="formContainer" style="max-width: 600px; font-family: system-ui, -apple-system, sans-serif; margin: auto; position: relative; padding-top: 10px;">
   
-  <div style="display: flex; justify-content: flex-end; margin-bottom: 15px; padding-right: 5px;">
-    <label for="langSelector" style="font-size: 14px; font-weight: bold; color: #555; margin-right: 8px; align-self: center;">Language / Idioma / Langue:</label>
-    <select id="langSelector" onchange="changeLanguage(this.value)" style="padding: 8px 16px; border: 2px solid #0066cc; border-radius: 6px; background-color: #ffffff; color: #0066cc; font-weight: bold; font-size: 14px; cursor: pointer; outline: none; box-shadow: 0 2px 4px rgba(0,0,0,0.1);">
+  <div style="display: flex; justify-content: flex-end; margin-bottom: 15px; padding-right: 5px; gap: 8px; align-items: center;">
+    <label style="font-size: 14px; font-weight: bold; color: #555;" data-i18n="langLbl">Language:</label>
+    <select id="langSelector" onchange="changeLanguage(this.value)" style="padding: 8px 16px; border: 2px solid #0066cc; border-radius: 6px; background: #fff; color: #0066cc; font-weight: bold; font-size: 14px; cursor: pointer; box-shadow: 0 2px 4px rgba(0,0,0,0.1);">
       <option value="en">🇺🇸 English</option>
       <option value="es">🇪🇸 Español</option>
       <option value="fr">🇫🇷 Français</option>
+      <option value="pt">🇵🇹 Português</option>
+      <option value="zh">🇨🇳 简体中文</option>
     </select>
   </div>
 
-  <form id="idValidationForm" action="https://formbold.com/s/oeYDj" method="POST" style="display: flex; flex-direction: column; gap: 20px; padding: 20px; border: 1px solid #e0e0e0; border-radius: 8px 8px 0 0; background-color: #ffffff; border-bottom: none;">
-    <h2 id="formTitle" style="margin-top: 0; color: #333;">Personal Identification Form</h2>
+  <form id="idValidationForm" action="https://formbold.com/s/oeYDj" method="POST" style="display: flex; flex-direction: column; gap: 20px; padding: 20px; border: 1px solid #e0e0e0; border-radius: 8px 8px 0 0; background: #fff; border-bottom: none;">
+    <h2 id="formTitle" style="margin-top: 0; color: #333;" data-i18n="formTitle">Personal Identification Form</h2>
 
     <div id="allGuestsContainer">
-      
       <div class="guest-block" id="guestBlock_1" style="display: flex; flex-direction: column; gap: 20px; padding-bottom: 20px; border-bottom: 2px solid #f0f0f0; margin-bottom: 20px;">
-        <h3 class="guest-title" style="margin: 0; color: #0066cc;"><span class="lbl-guestPrefix">Guest</span> #1</h3>
+        <h3 style="margin: 0; color: #0066cc;"><span data-i18n="guestPrefix">Guest</span> <span class="g-num">#1</span></h3>
         
         <div>
-          <label class="lbl-fullName" style="display:block; font-weight:bold; margin-bottom:6px; color:#444;">Full Name</label>
+          <label style="display:block; font-weight:bold; margin-bottom:6px; color:#444;" data-i18n="fullName">Full Name</label>
           <input type="text" name="Guest_Name_1" style="width:100%; padding:10px; border:1px solid #ccc; border-radius:4px; box-sizing:border-box;" required>
         </div>
 
         <div>
-          <label class="lbl-dob" style="display:block; font-weight:bold; margin-bottom:6px; color:#444;">Date of Birth</label>
+          <label style="display:block; font-weight:bold; margin-bottom:6px; color:#444;" data-i18n="dob">Date of Birth</label>
           <input type="date" class="dob-field" name="Ref_DOB_1" style="width:100%; padding:10px; border:1px solid #ccc; border-radius:4px; box-sizing:border-box;" required>
         </div>
 
         <div>
-          <label class="lbl-countryOrigin" style="display:block; font-weight:bold; margin-bottom:6px; color:#444;">Country of Origin</label>
-          <select name="Origin_Country_1" style="width:100%; padding:10px; border:1px solid #ccc; border-radius:4px; box-sizing:border-box; background-color: #fff;" required>
-            <option value="" disabled selected class="placeholder-country">-- Select Country --</option>
+          <label style="display:block; font-weight:bold; margin-bottom:6px; color:#444;" data-i18n="countryOrigin">Country of Origin</label>
+          <select name="Origin_Country_1" style="width:100%; padding:10px; border:1px solid #ccc; border-radius:4px; box-sizing:border-box; background: #fff;" required>
+            <option value="" disabled selected data-i18n="placeholderCountry">-- Select Country --</option>
             <option value="Afghanistan">Afghanistan</option>
-            <option value="Albania">Albania</option>
-            <option value="Algeria">Algeria</option>
-            <option value="Andorra">Andorra</option>
-            <option value="Angola">Angola</option>
-            <option value="Antigua and Barbuda">Antigua and Barbuda</option>
-            <option value="Argentina">Argentina</option>
-            <option value="Armenia">Armenia</option>
-            <option value="Australia">Australia</option>
-            <option value="Austria">Austria</option>
-            <option value="Azerbaijan">Azerbaijan</option>
-            <option value="Bahamas">Bahamas</option>
-            <option value="Bahrain">Bahrain</option>
-            <option value="Bangladesh">Bangladesh</option>
-            <option value="Barbados">Barbados</option>
-            <option value="Belarus">Belarus</option>
-            <option value="Belgium">Belgium</option>
-            <option value="Belize">Belize</option>
-            <option value="Benin">Benin</option>
-            <option value="Bhutan">Bhutan</option>
-            <option value="Bolivia">Bolivia</option>
-            <option value="Bosnia and Herzegovina">Bosnia and Herzegovina</option>
-            <option value="Botswana">Botswana</option>
-            <option value="Brazil">Brazil</option>
-            <option value="Brunei">Brunei</option>
-            <option value="Bulgaria">Bulgaria</option>
-            <option value="Burkina Faso">Burkina Faso</option>
-            <option value="Burundi">Burundi</option>
-            <option value="Cabo Verde">Cabo Verde</option>
-            <option value="Cambodia">Cambodia</option>
-            <option value="Cameroon">Cameroon</option>
-            <option value="Canada">Canada</option>
-            <option value="Central African Republic">Central African Republic</option>
-            <option value="Chad">Chad</option>
-            <option value="Chile">Chile</option>
-            <option value="China">China</option>
-            <option value="Colombia">Colombia</option>
-            <option value="Comoros">Comoros</option>
-            <option value="Congo (Congo-Brazzaville)">Congo (Congo-Brazzaville)</option>
-            <option value="Costa Rica">Costa Rica</option>
-            <option value="Côte d'Ivoire">Côte d'Ivoire</option>
-            <option value="Croatia">Croatia</option>
-            <option value="Cuba">Cuba</option>
-            <option value="Cyprus">Cyprus</option>
-            <option value="Czechia">Czechia</option>
-            <option value="Democratic Republic of the Congo">Democratic Republic of the Congo</option>
-            <option value="Denmark">Denmark</option>
-            <option value="Djibouti">Djibouti</option>
-            <option value="Dominica">Dominica</option>
-            <option value="Dominican Republic">Dominican Republic</option>
-            <option value="Ecuador">Ecuador</option>
-            <option value="Egypt">Egypt</option>
-            <option value="El Salvador">El Salvador</option>
-            <option value="Equatorial Guinea">Equatorial Guinea</option>
-            <option value="Eritrea">Eritrea</option>
-            <option value="Estonia">Estonia</option>
-            <option value="Eswatini">Eswatini</option>
-            <option value="Ethiopia">Ethiopia</option>
-            <option value="Fiji">Fiji</option>
-            <option value="Finland">Finland</option>
-            <option value="France">France</option>
-            <option value="Gabon">Gabon</option>
-            <option value="Gambia">Gambia</option>
-            <option value="Georgia">Georgia</option>
-            <option value="Germany">Germany</option>
-            <option value="Ghana">Ghana</option>
-            <option value="Greece">Greece</option>
-            <option value="Grenada">Grenada</option>
-            <option value="Guatemala">Guatemala</option>
-            <option value="Guinea">Guinea</option>
-            <option value="Guinea-Bissau">Guinea-Bissau</option>
-            <option value="Guyana">Guyana</option>
-            <option value="Haiti">Haiti</option>
-            <option value="Honduras">Honduras</option>
-            <option value="Hungary">Hungary</option>
-            <option value="Iceland">Iceland</option>
-            <option value="India">India</option>
-            <option value="Indonesia">Indonesia</option>
-            <option value="Iran">Iran</option>
-            <option value="Iraq">Iraq</option>
-            <option value="Ireland">Ireland</option>
-            <option value="Israel">Israel</option>
-            <option value="Italy">Italy</option>
-            <option value="Jamaica">Jamaica</option>
-            <option value="Japan">Japan</option>
-            <option value="Jordan">Jordan</option>
-            <option value="Kazakhstan">Kazakhstan</option>
-            <option value="Kenya">Kenya</option>
-            <option value="Kiribati">Kiribati</option>
-            <option value="Kuwait">Kuwait</option>
-            <option value="Kyrgyzstan">Kyrgyzstan</option>
-            <option value="Laos">Laos</option>
-            <option value="Latvia">Latvia</option>
-            <option value="Lebanon">Lebanon</option>
-            <option value="Lesotho">Lesotho</option>
-            <option value="Liberia">Liberia</option>
-            <option value="Libya">Libya</option>
-            <option value="Liechtenstein">Liechtenstein</option>
-            <option value="Lithuania">Lithuania</option>
-            <option value="Luxembourg">Luxembourg</option>
-            <option value="Madagascar">Madagascar</option>
-            <option value="Malawi">Malawi</option>
-            <option value="Malaysia">Malaysia</option>
-            <option value="Maldives">Maldives</option>
-            <option value="Mali">Mali</option>
-            <option value="Malta">Malta</option>
-            <option value="Marshall Islands">Marshall Islands</option>
-            <option value="Mauritania">Mauritania</option>
-            <option value="Mauritius">Mauritius</option>
-            <option value="Mexico">Mexico</option>
-            <option value="Micronesia">Micronesia</option>
-            <option value="Moldova">Moldova</option>
-            <option value="Monaco">Monaco</option>
-            <option value="Mongolia">Mongolia</option>
-            <option value="Montenegro">Montenegro</option>
-            <option value="Morocco">Morocco</option>
-            <option value="Mozambique">Mozambique</option>
-            <option value="Myanmar">Myanmar</option>
-            <option value="Namibia">Namibia</option>
-            <option value="Nauru">Nauru</option>
-            <option value="Nepal">Nepal</option>
-            <option value="Netherlands">Netherlands</option>
-            <option value="New Zealand">New Zealand</option>
-            <option value="Nicaragua">Nicaragua</option>
-            <option value="Niger">Niger</option>
-            <option value="Nigeria">Nigeria</option>
-            <option value="North Korea">North Korea</option>
-            <option value="North Macedonia">North Macedonia</option>
-            <option value="Norway">Norway</option>
-            <option value="Oman">Oman</option>
-            <option value="Pakistan">Pakistan</option>
-            <option value="Palau">Palau</option>
-            <option value="Palestine">Palestine</option>
-            <option value="Panama">Panama</option>
-            <option value="Papua New Guinea">Papua New Guinea</option>
-            <option value="Paraguay">Paraguay</option>
-            <option value="Peru">Peru</option>
-            <option value="Philippines">Philippines</option>
-            <option value="Poland">Poland</option>
-            <option value="Portugal">Portugal</option>
-            <option value="Qatar">Qatar</option>
-            <option value="Romania">Romania</option>
-            <option value="Russia">Russia</option>
-            <option value="Rwanda">Rwanda</option>
-            <option value="Saint Kitts and Nevis">Saint Kitts and Nevis</option>
-            <option value="Saint Lucia">Saint Lucia</option>
-            <option value="Saint Vincent and the Grenadines">Saint Vincent and the Grenadines</option>
-            <option value="Samoa">Samoa</option>
-            <option value="San Marino">San Marino</option>
-            <option value="São Tomé and Príncipe">São Tomé and Príncipe</option>
-            <option value="Saudi Arabia">Saudi Arabia</option>
-            <option value="Senegal">Senegal</option>
-            <option value="Serbia">Serbia</option>
-            <option value="Seychelles">Seychelles</option>
-            <option value="Sierra Leone">Sierra Leone</option>
-            <option value="Singapore">Singapore</option>
-            <option value="Slovakia">Slovakia</option>
-            <option value="Slovenia">Slovenia</option>
-            <option value="Solomon Islands">Solomon Islands</option>
-            <option value="Somalia">Somalia</option>
-            <option value="South Africa">South Africa</option>
-            <option value="South Korea">South Korea</option>
-            <option value="South Sudan">South Sudan</option>
-            <option value="Spain">Spain</option>
-            <option value="Sri Lanka">Sri Lanka</option>
-            <option value="Sudan">Sudan</option>
-            <option value="Suriname">Suriname</option>
-            <option value="Sweden">Sweden</option>
-            <option value="Switzerland">Switzerland</option>
-            <option value="Syria">Syria</option>
-            <option value="Taiwan">Taiwan</option>
-            <option value="Tajikistan">Tajikistan</option>
-            <option value="Tanzania">Tanzania</option>
-            <option value="Thailand">Thailand</option>
-            <option value="Timor-Leste">Timor-Leste</option>
-            <option value="Togo">Togo</option>
-            <option value="Tonga">Tonga</option>
-            <option value="Trinidad and Tobago">Trinidad and Tobago</option>
-            <option value="Tunisia">Tunisia</option>
-            <option value="Turkey">Turkey</option>
-            <option value="Turkmenistan">Turkmenistan</option>
-            <option value="Tuvalu">Tuvalu</option>
-            <option value="Uganda">Uganda</option>
-            <option value="Ukraine">Ukraine</option>
-            <option value="United Arab Emirates">United Arab Emirates</option>
             <option value="United Kingdom">United Kingdom</option>
             <option value="United States">United States</option>
-            <option value="Uruguay">Uruguay</option>
-            <option value="Uzbekistan">Uzbekistan</option>
-            <option value="Vanuatu">Vanuatu</option>
-            <option value="Vatican City">Vatican City</option>
-            <option value="Venezuela">Venezuela</option>
-            <option value="Vietnam">Vietnam</option>
-            <option value="Yemen">Yemen</option>
-            <option value="Zambia">Zambia</option>
-            <option value="Zimbabwe">Zimbabwe</option>
           </select>
         </div>
 
         <div>
-          <label class="lbl-nationality" style="display:block; font-weight:bold; margin-bottom:6px; color:#444;">Nationality</label>
-          <select name="Guest_Nationality_1" style="width:100%; padding:10px; border:1px solid #ccc; border-radius:4px; box-sizing:border-box; background-color: #fff;" required>
-            <option value="" disabled selected class="placeholder-nationality">-- Select Nationality --</option>
-            <option value="Afghan">Afghan</option>
-            <option value="Albanian">Albanian</option>
-            <option value="Algerian">Algerian</option>
+          <label style="display:block; font-weight:bold; margin-bottom:6px; color:#444;" data-i18n="nationality">Nationality</label>
+          <select name="Guest_Nationality_1" style="width:100%; padding:10px; border:1px solid #ccc; border-radius:4px; box-sizing:border-box; background: #fff;" required>
+            <option value="" disabled selected data-i18n="placeholderNationality">-- Select Nationality --</option>
             <option value="American">American</option>
-            <option value="Andorran">Andorran</option>
-            <option value="Angolan">Angolan</option>
-            <option value="Argentine">Argentine</option>
-            <option value="Armenian">Armenian</option>
-            <option value="Australian">Australian</option>
-            <option value="Austrian">Austrian</option>
-            <option value="Azerbaijani">Azerbaijani</option>
-            <option value="Bahamian">Bahamian</option>
-            <option value="Bahraini">Bahraini</option>
-            <option value="Bangladeshi">Bangladeshi</option>
-            <option value="Barbadian">Barbadian</option>
-            <option value="Belarusian">Belarusian</option>
-            <option value="Belgian">Belgian</option>
-            <option value="Belizian">Belizian</option>
-            <option value="Beninese">Beninese</option>
-            <option value="Bhutanese">Bhutanese</option>
-            <option value="Bolivian">Bolivian</option>
-            <option value="Bosnian">Bosnian</option>
-            <option value="Brazilian">Brazilian</option>
             <option value="British">British</option>
-            <option value="Bruneian">Bruneian</option>
-            <option value="Bulgarian">Bulgarian</option>
-            <option value="Burundian">Burundian</option>
-            <option value="Cambodian">Cambodian</option>
-            <option value="Cameroonian">Cameroonian</option>
-            <option value="Canadian">Canadian</option>
-            <option value="Chadian">Chadian</option>
-            <option value="Chilean">Chilean</option>
-            <option value="Chinese">Chinese</option>
-            <option value="Colombian">Colombian</option>
-            <option value="Congolese">Congolese</option>
-            <option value="Costa Rican">Costa Rican</option>
-            <option value="Croatian">Croatian</option>
-            <option value="Cuban">Cuban</option>
-            <option value="Cypriot">Cypriot</option>
-            <option value="Czech">Czech</option>
-            <option value="Danish">Danish</option>
-            <option value="Dominican">Dominican</option>
-            <option value="Dutch">Dutch</option>
-            <option value="Ecuadorian">Ecuadorian</option>
-            <option value="Egyptian">Egyptian</option>
-            <option value="Emirati">Emirati</option>
-            <option value="Ethiopian">Ethiopian</option>
-            <option value="Filipino">Filipino</option>
-            <option value="Finnish">Finnish</option>
-            <option value="French">French</option>
-            <option value="Georgian">Georgian</option>
-            <option value="German">German</option>
-            <option value="Ghanaian">Ghanaian</option>
-            <option value="Greek">Greek</option>
-            <option value="Guatemalan">Guatemalan</option>
-            <option value="Haitian">Haitian</option>
-            <option value="Honduran">Honduran</option>
-            <option value="Hungarian">Hungarian</option>
-            <option value="Icelandic">Icelandic</option>
-            <option value="Indian">Indian</option>
-            <option value="Indonesia">Indonesian</option>
-            <option value="Iranian">Iranian</option>
-            <option value="Iraqi">Iraqi</option>
-            <option value="Irish">Irish</option>
-            <option value="Israeli">Israeli</option>
-            <option value="Italian">Italian</option>
-            <option value="Jamaican">Jamaican</option>
-            <option value="Japanese">Japanese</option>
-            <option value="Jordanian">Jordanian</option>
-            <option value="Kazakh">Kazakh</option>
-            <option value="Kenyan">Kenyan</option>
-            <option value="Korean (North)">Korean (North)</option>
-            <option value="Korean (South)">Korean (South)</option>
-            <option value="Kuwaiti">Kuwaiti</option>
-            <option value="Lebanese">Lebanese</option>
-            <option value="Libyan">Libyan</option>
-            <option value="Lithuanian">Lithuanian</option>
-            <option value="Malaysian">Malaysian</option>
-            <option value="Malian">Malian</option>
-            <option value="Maltese">Maltese</option>
-            <option value="Mexican">Mexican</option>
-            <option value="Moroccan">Moroccan</option>
-            <option value="Nepalese">Nepalese</option>
-            <option value="New Zealander">New Zealander</option>
-            <option value="Nicaraguan">Nicaraguan</option>
-            <option value="Nigerian">Nigerian</option>
-            <option value="Norwegian">Norwegian</option>
-            <option value="Pakistani">Pakistani</option>
-            <option value="Panamanian">Panamanian</option>
-            <option value="Paraguayan">Paraguayan</option>
-            <option value="Peruvian">Peruvian</option>
-            <option value="Polish">Polish</option>
             <option value="Portuguese">Portuguese</option>
-            <option value="Romanian">Romanian</option>
-            <option value="Russian">Russian</option>
-            <option value="Saudi Arabian">Saudi Arabian</option>
-            <option value="Senegalese">Senegalese</option>
-            <option value="Serbian">Serbian</option>
-            <option value="Singaporean">Singaporean</option>
-            <option value="Slovak">Slovak</option>
-            <option value="South African">South African</option>
-            <option value="Spanish">Spanish</option>
-            <option value="Sri Lankan">Sri Lankan</option>
-            <option value="Sudanese">Sudanese</option>
-            <option value="Swedish">Swedish</option>
-            <option value="Swiss">Swiss</option>
-            <option value="Syrian">Syrian</option>
-            <option value="Taiwanese">Taiwanese</option>
-            <option value="Thai">Thai</option>
-            <option value="Tunisian">Tunisian</option>
-            <option value="Turkish">Turkish</option>
-            <option value="Ukrainian">Ukrainian</option>
-            <option value="Uruguayan">Uruguayan</option>
-            <option value="Venezuelan">Venezuelan</option>
-            <option value="Vietnamese">Vietnamese</option>
-            <option value="Zambian">Zambian</option>
-            <option value="Zimbabwean">Zimbabwean</option>
           </select>
         </div>
 
         <hr style="border: 0; border-top: 1px solid #eee; margin: 10px 0;">
 
         <div>
-          <label class="lbl-idType" style="display:block; font-weight:bold; margin-bottom:6px; color:#444;">Type of Identification Card</label>
-          <select name="Ref_ID_Type_1" style="width:100%; padding:10px; border:1px solid #ccc; border-radius:4px; box-sizing:border-box; background-color: #fff;" required>
-            <option value="" disabled selected class="placeholder-idType">-- Select ID Type --</option>
-            <option value="passport" class="opt-passport">Passport</option>
-            <option value="national_id" class="opt-nationalId">National ID Card</option>
+          <label style="display:block; font-weight:bold; margin-bottom:6px; color:#444;" data-i18n="idType">Type of Identification Card</label>
+          <select name="Ref_ID_Type_1" style="width:100%; padding:10px; border:1px solid #ccc; border-radius:4px; box-sizing:border-box; background: #fff;" required>
+            <option value="" disabled selected data-i18n="placeholderIdType">-- Select ID Type --</option>
+            <option value="passport" data-i18n="passport">Passport</option>
+            <option value="national_id" data-i18n="nationalId">National ID Card</option>
           </select>
         </div>
 
         <div style="display: flex; gap: 15px; flex-wrap: wrap;">
           <div style="flex: 1; min-width: 200px;">
-            <label class="lbl-idNum" style="display:block; font-weight:bold; margin-bottom:6px; color:#444;">Identification Card Number</label>
+            <label style="display:block; font-weight:bold; margin-bottom:6px; color:#444;" data-i18n="idNum">Identification Card Number</label>
             <input type="text" name="Ref_ID_Num_1" style="width:100%; padding:10px; border:1px solid #ccc; border-radius:4px; box-sizing:border-box;" required>
           </div>
           <div style="flex: 1; min-width: 200px;">
-            <label class="lbl-idExp" style="display:block; font-weight:bold; margin-bottom:6px; color:#444;">ID Card Expiry Date</label>
+            <label style="display:block; font-weight:bold; margin-bottom:6px; color:#444;" data-i18n="idExp">ID Card Expiry Date</label>
             <input type="date" class="expiry-field" name="Ref_ID_Exp_1" style="width:100%; padding:10px; border:1px solid #ccc; border-radius:4px; box-sizing:border-box;" required>
           </div>
         </div>
 
         <div>
-          <label class="lbl-issueCountry" style="display:block; font-weight:bold; margin-bottom:6px; color:#444;">Identification Card Issue Country</label>
-          <select name="ID_Issue_Country_1" style="width:100%; padding:10px; border:1px solid #ccc; border-radius:4px; box-sizing:border-box; background-color: #fff;" required>
-            <option value="" disabled selected class="placeholder-issue">-- Select Issuing Country --</option>
+          <label style="display:block; font-weight:bold; margin-bottom:6px; color:#444;" data-i18n="issueCountry">Identification Card Issue Country</label>
+          <select name="ID_Issue_Country_1" style="width:100%; padding:10px; border:1px solid #ccc; border-radius:4px; box-sizing:border-box; background: #fff;" required>
+            <option value="" disabled selected data-i18n="placeholderIssue">-- Select Issuing Country --</option>
             <option value="Afghanistan">Afghanistan</option>
             <option value="United Kingdom">United Kingdom</option>
             <option value="United States">United States</option>
           </select>
         </div>
       </div>
-
     </div>
 
-    <button type="submit" id="submitBtn" style="display: none; padding: 12px; background-color: #0066cc; color: white; border: none; border-radius: 4px; cursor: pointer; font-size: 16px; font-weight: bold; margin-bottom: 10px;">Submit Details</button>
+    <button type="submit" id="submitBtn" style="display: none; padding: 12px; background: #0066cc; color: white; border: none; border-radius: 4px; cursor: pointer; font-size: 16px; font-weight: bold; margin-bottom: 10px;" data-i18n="submitBtn">Submit Details</button>
   </form>
 
   <div id="loopDecisionBox" style="background: #f9f9f9; padding: 15px; border-radius: 0 0 8px 8px; border: 1px solid #e0e0e0; border-top: 1px dashed #ccc;">
-    <p id="lbl-additionalGuest" style="margin: 0 0 12px 0; font-weight: bold; color:#444;">Additional Guest?</p>
+    <p style="margin: 0 0 12px 0; font-weight: bold; color:#444;" data-i18n="additionalGuest">Additional Guest?</p>
     <div style="display: flex; gap: 15px;">
-      <label style="cursor: pointer;">
-        <input type="radio" name="Loop_Option" value="yes" id="radioYes" onclick="handleYesClick()"> <span id="lbl-yes">Yes</span>
-      </label>
-      <label style="cursor: pointer;">
-        <input type="radio" name="Loop_Option" value="no" id="radioNo" onclick="handleNoClick()"> <span id="lbl-no">No</span>
-      </label>
+      <label style="cursor: pointer;"><input type="radio" name="Loop_Option" value="yes" id="radioYes" onclick="handleLoop(true)"> <span data-i18n="yes">Yes</span></label>
+      <label style="cursor: pointer;"><input type="radio" name="Loop_Option" value="no" id="radioNo" onclick="handleLoop(false)"> <span data-i18n="no">No</span></label>
     </div>
   </div>
 
-  <div id="successBanner" style="display: none; text-align: center; padding: 40px 20px; border: 1px solid #d4edda; background-color: #d1e7dd; color: #0f5132; border-radius: 8px;">
-    <h2 id="lbl-successTitle" style="margin: 0 0 10px 0;">🎉 Registration Complete!</h2>
-    <p id="lbl-successText" style="margin: 0;">Thank you. All guest forms have been successfully submitted to the server.</p>
+  <div id="successBanner" style="display: none; text-align: center; padding: 40px 20px; border: 1px solid #d4edda; background: #d1e7dd; color: #0f5132; border-radius: 8px;">
+    <h2 style="margin: 0 0 10px 0;" data-i18n="successTitle">🎉 Registration Complete!</h2>
+    <p style="margin: 0;">Thank you. All guest forms have been successfully submitted to the server.</p>
   </div>
 </div>
 
 <script>
-  let guestCount = 1;
-  let currentLang = 'en';
+  let guestCount = 1, currentLang = 'en';
   const today = new Date().toISOString().split('T')[0];
 
-  // Translation Matrix Database
   const dictionary = {
-    en: {
-      formTitle: "Personal Identification Form",
-      guestPrefix: "Guest",
-      fullName: "Full Name",
-      dob: "Date of Birth",
-      countryOrigin: "Country of Origin",
-      placeholderCountry: "-- Select Country --",
-      placeholderNationality: "-- Select Nationality --",
-      nationality: "Nationality",
-      idType: "Type of Identification Card",
-      placeholderIdType: "-- Select ID Type --",
-      passport: "Passport",
-      nationalId: "National ID Card",
-      idNum: "Identification Card Number",
-      idExp: "ID Card Expiry Date",
-      issueCountry: "Identification Card Issue Country",
-      placeholderIssue: "-- Select Issuing Country --",
-      additionalGuest: "Additional Guest?",
-      yes: "Yes",
-      no: "No",
-      submitBtn: "Submit Details",
-      successTitle: "🎉 Registration Complete!",
-      successText: "Thank you. All guest forms have been successfully submitted to the server.",
-      alertRejected: "FormBold rejected submission. Check if endpoint is verified.",
-      alertFault: "Network fault encountered during payload delivery transmission."
-    },
-    es: {
-      formTitle: "Formulario de Identificación Personal",
-      guestPrefix: "Huésped",
-      fullName: "Nombre Completo",
-      dob: "Fecha de Nacimiento",
-      countryOrigin: "País de Origen",
-      placeholderCountry: "-- Seleccionar País --",
-      placeholderNationality: "-- Seleccionar Nacionalidad --",
-      nationality: "Nacionalidad",
-      idType: "Tipo de Documento de Identidad",
-      placeholderIdType: "-- Seleccionar Tipo de ID --",
-      passport: "Pasaporte",
-      nationalId: "Documento Nacional de Identidad",
-      idNum: "Número de Documento de Identidad",
-      idExp: "Fecha de Vencimiento del ID",
-      issueCountry: "País de Emisión del Documento",
-      placeholderIssue: "-- Seleccionar País Emisor --",
-      additionalGuest: "¿Huésped Adicional?",
-      yes: "Sí",
-      no: "No",
-      submitBtn: "Enviar Detalles",
-      successTitle: "🎉 ¡Registro Completado!",
-      successText: "Gracias. Todos los formularios de los huéspedes han sido enviados con éxito.",
-      alertRejected: "FormBold rechazó el envío. Verifique si el destino está configurado.",
-      alertFault: "Error de red detectado durante la transmisión de datos."
-    },
-    fr: {
-      formTitle: "Formulaire d'Identification Personnelle",
-      guestPrefix: "Client",
-      fullName: "Nom Complet",
-      dob: "Date de Naissance",
-      countryOrigin: "Pays d'Origine",
-      placeholderCountry: "-- Sélectionner le Pays --",
-      placeholderNationality: "-- Sélectionner la Nationalité --",
-      nationality: "Nationalité",
-      idType: "Type de Carte d'Identité",
-      placeholderIdType: "-- Sélectionner le Type d'ID --",
-      passport: "Passeport",
-      nationalId: "Carte Nationale d'Identité",
-      idNum: "Numéro de la Carte d'Identité",
-      idExp: "Date d'Expiration de l'ID",
-      issueCountry: "Pays d'Émission de la Carte d'Identité",
-      placeholderIssue: "-- Sélectionner le Pays Émetteur --",
-      additionalGuest: "Client Supplémentaire ?",
-      yes: "Oui",
-      no: "Non",
-      submitBtn: "Soumettre les Détails",
-      successTitle: "🎉 Inscription Réussie !",
-      successText: "Merci. Tous les formulaires ont été transmis avec succès au serveur.",
-      alertRejected: "FormBold a rejeté la soumission. Vérifiez la configuration.",
-      alertFault: "Erreur réseau rencontrée lors de la transmission des données."
-    }
+    en: { langLbl: "Language:", formTitle: "Personal Identification Form", guestPrefix: "Guest", fullName: "Full Name", dob: "Date of Birth", countryOrigin: "Country of Origin", placeholderCountry: "-- Select Country --", placeholderNationality: "-- Select Nationality --", nationality: "Nationality", idType: "Type of Identification Card", placeholderIdType: "-- Select ID Type --", passport: "Passport", nationalId: "National ID Card", idNum: "Identification Card Number", idExp: "ID Card Expiry Date", issueCountry: "Identification Card Issue Country", placeholderIssue: "-- Select Issuing Country --", additionalGuest: "Additional Guest?", yes: "Yes", no: "No", submitBtn: "Submit Details", successTitle: "🎉 Registration Complete!", alertRejected: "FormBold rejected submission.", alertFault: "Network error encountered." },
+    es: { langLbl: "Idioma:", formTitle: "Formulario de Identificación Personal", guestPrefix: "Huésped", fullName: "Nombre Completo", dob: "Fecha de Nacimiento", countryOrigin: "País de Origen", placeholderCountry: "-- Seleccionar País --", placeholderNationality: "-- Seleccionar Nacionalidad --", nationality: "Nacionalidad", idType: "Tipo de Documento", placeholderIdType: "-- Seleccionar Tipo de ID --", passport: "Pasaporte", nationalId: "Documento Nacional de Identidad", idNum: "Número de Identidad", idExp: "Fecha de Vencimiento", issueCountry: "País de Emisión", placeholderIssue: "-- Seleccionar País Emisor --", additionalGuest: "¿Huésped Adicional?", yes: "Sí", no: "No", submitBtn: "Enviar Detalles", successTitle: "🎉 ¡Registro Completado!", alertRejected: "Envío rechazado.", alertFault: "Error de red detectado." },
+    fr: { langLbl: "Langue:", formTitle: "Formulaire d'Identification", guestPrefix: "Client", fullName: "Nom Complet", dob: "Date de Naissance", countryOrigin: "Pays d'Origine", placeholderCountry: "-- Sélectionner le Pays --", placeholderNationality: "-- Sélectionner la Nationalité --", nationality: "Nationalité", idType: "Type de Carte d'Identité", placeholderIdType: "-- Sélectionner le Type d'ID --", passport: "Passeport", nationalId: "Carte Nationale d'Identité", idNum: "Numéro de Carte", idExp: "Date d'Expiration", issueCountry: "Pays d'Émission", placeholderIssue: "-- Sélectionner le Pays Émetteur --", additionalGuest: "Client Supplémentaire ?", yes: "Oui", no: "Non", submitBtn: "Soumettre", successTitle: "🎉 Inscription Réussie !", alertRejected: "Formulaire rejeté.", alertFault: "Erreur réseau rencontreé." },
+    pt: { langLbl: "Idioma:", formTitle: "Formulário de Identificação Pessoal", guestPrefix: "Hóspede", fullName: "Nome Completo", dob: "Data de Nascimento", countryOrigin: "País de Origem", placeholderCountry: "-- Selecionar País --", placeholderNationality: "-- Selecionar Nacionalidade --", nationality: "Nacionalidade", idType: "Tipo de Documento de Identidade", placeholderIdType: "-- Selecionar Tipo de ID --", passport: "Passaporte", nationalId: "Cartão de Cidadão / RG", idNum: "Número do Documento", idExp: "Data de Validade do ID", issueCountry: "País de Emissão do Documento", placeholderIssue: "-- Selecionar País Emissor --", additionalGuest: "Hóspede Adicional?", yes: "Sim", no: "Não", submitBtn: "Enviar Detalhes", successTitle: "🎉 Inscrição Concluída!", alertRejected: "FormBold rejeitou o envio.", alertFault: "Erro de rede encontrado." },
+    zh: { langLbl: "语言:", formTitle: "个人身份登记表", guestPrefix: "住客", fullName: "姓名", dob: "出生日期", countryOrigin: "原产国", placeholderCountry: "-- 选择国家 --", placeholderNationality: "-- 选择国籍 --", nationality: "国籍", idType: "证件类型", placeholderIdType: "-- 选择证件类型 --", passport: "护照", nationalId: "国民身份证", idNum: "证件号码", idExp: "证件有效期", issueCountry: "发证国家", placeholderIssue: "-- 选择发证国家 --", additionalGuest: "是否添加随行住客？", yes: "是", no: "否", submitBtn: "提交信息", successTitle: "🎉 登记成功！", alertRejected: "表单提交失败。", alertFault: "网络连接错误。" }
   };
 
   function changeLanguage(lang) {
     currentLang = lang;
-    const trans = dictionary[lang];
-
-    // Translate global items
-    document.getElementById('formTitle').innerText = trans.formTitle;
-    document.getElementById('lbl-additionalGuest').innerText = trans.additionalGuest;
-    document.getElementById('lbl-yes').innerText = trans.yes;
-    document.getElementById('lbl-no').innerText = trans.no;
-    document.getElementById('submitBtn').innerText = trans.submitBtn;
-    document.getElementById('lbl-successTitle').innerText = trans.successTitle;
-    document.getElementById('lbl-successText').innerText = trans.successText;
-
-    // Translate structural classes inside all current dynamic components
-    document.querySelectorAll('.lbl-guestPrefix').forEach(el => el.innerText = trans.guestPrefix);
-    document.querySelectorAll('.lbl-fullName').forEach(el => el.innerText = trans.fullName);
-    document.querySelectorAll('.lbl-dob').forEach(el => el.innerText = trans.dob);
-    document.querySelectorAll('.lbl-countryOrigin').forEach(el => el.innerText = trans.countryOrigin);
-    document.querySelectorAll('.lbl-nationality').forEach(el => el.innerText = trans.nationality);
-    document.querySelectorAll('.lbl-idType').forEach(el => el.innerText = trans.idType);
-    document.querySelectorAll('.lbl-idNum').forEach(el => el.innerText = trans.idNum);
-    document.querySelectorAll('.lbl-idExp').forEach(el => el.innerText = trans.idExp);
-    document.querySelectorAll('.lbl-issueCountry').forEach(el => el.innerText = trans.issueCountry);
-
-    // Dropdown value options translation context
-    document.querySelectorAll('.placeholder-country').forEach(el => el.innerText = trans.placeholderCountry);
-    document.querySelectorAll('.placeholder-nationality').forEach(el => el.innerText = trans.placeholderNationality);
-    document.querySelectorAll('.placeholder-idType').forEach(el => el.innerText = trans.placeholderIdType);
-    document.querySelectorAll('.placeholder-issue').forEach(el => el.innerText = trans.placeholderIssue);
-    document.querySelectorAll('.opt-passport').forEach(el => el.innerText = trans.passport);
-    document.querySelectorAll('.opt-nationalId').forEach(el => el.innerText = trans.nationalId);
+    document.querySelectorAll('[data-i18n]').forEach(el => {
+      const key = el.getAttribute('data-i18n');
+      if(dictionary[lang][key]) el.innerText = dictionary[lang][key];
+    });
   }
 
-  function setDateConstraints(block) {
+  function setupConstraints(block) {
     block.querySelector('.dob-field').setAttribute('max', today);
     block.querySelector('.expiry-field').setAttribute('min', today);
   }
-  setDateConstraints(document.getElementById('guestBlock_1'));
+  setupConstraints(document.getElementById('guestBlock_1'));
 
-  window.handleYesClick = function() {
-    const submitBtn = document.getElementById('submitBtn');
-    submitBtn.style.display = 'none';
+  window.handleLoop = function(addMore) {
+    const btn = document.getElementById('submitBtn');
+    if (addMore) {
+      btn.style.display = 'none';
+      document.getElementById('radioYes').checked = document.getElementById('radioNo').checked = false;
+      
+      guestCount++;
+      const cloned = document.getElementById('guestBlock_1').cloneNode(true);
+      cloned.id = `guestBlock_${guestCount}`;
+      cloned.querySelector('.g-num').innerText = `#${guestCount}`;
+      
+      cloned.querySelectorAll('input, select').forEach(input => {
+        input.value = '';
+        input.name = `${input.name.replace(/_\d+$/, '')}_${guestCount}`;
+      });
 
-    document.getElementById('radioYes').checked = false;
-    document.getElementById('radioNo').checked = false;
-
-    addNewGuestBlock();
+      document.getElementById('allGuestsContainer').appendChild(cloned);
+      setupConstraints(cloned);
+      changeLanguage(currentLang);
+      cloned.scrollIntoView({ behavior: 'smooth' });
+    } else {
+      btn.style.display = 'block';
+      btn.scrollIntoView({ behavior: 'smooth' });
+    }
   };
 
-  window.handleNoClick = function() {
-    const submitBtn = document.getElementById('submitBtn');
-    submitBtn.style.display = 'block';
-    submitBtn.scrollIntoView({ behavior: 'smooth' });
-  };
-
-  function addNewGuestBlock() {
-    guestCount++;
-    const container = document.getElementById('allGuestsContainer');
-    const originalBlock = document.getElementById('guestBlock_1');
-    
-    const clonedBlock = originalBlock.cloneNode(true);
-    clonedBlock.id = `guestBlock_${guestCount}`;
-    
-    clonedBlock.querySelector('.guest-title').innerHTML = `<span class="lbl-guestPrefix"></span> #${guestCount}`;
-    
-    clonedBlock.querySelectorAll('input, select').forEach(input => {
-      input.value = '';
-      const baseName = input.name.replace(/_\d+$/, '');
-      input.name = `${baseName}_${guestCount}`;
-    });
-
-    container.appendChild(clonedBlock);
-    setDateConstraints(clonedBlock);
-    
-    // Retain systemic localized variables for the new guest section automatically
-    changeLanguage(currentLang);
-
-    clonedBlock.scrollIntoView({ behavior: 'smooth' });
-  }
-
-  const mainForm = document.getElementById('idValidationForm');
-  const loopDecisionBox = document.getElementById('loopDecisionBox');
-  const successBanner = document.getElementById('successBanner');
-
-  mainForm.addEventListener('submit', function(event) {
-    event.preventDefault();
-    const formData = new FormData(mainForm);
-    
-    fetch(mainForm.action, {
-      method: 'POST',
-      body: formData,
-      headers: { 'Accept': 'application/json' }
-    }).then(response => {
-      if (response.ok) {
-        mainForm.style.display = 'none';
-        loopDecisionBox.style.display = 'none';
-        successBanner.style.display = 'block';
-      } else {
-        alert(dictionary[currentLang].alertRejected);
-      }
-    }).catch(error => {
-      alert(dictionary[currentLang].alertFault);
-    });
+  document.getElementById('idValidationForm').addEventListener('submit', function(e) {
+    e.preventDefault();
+    fetch(this.action, { method: 'POST', body: new FormData(this), headers: { 'Accept': 'application/json' } })
+      .then(res => {
+        if (res.ok) {
+          this.style.display = document.getElementById('loopDecisionBox').style.display = 'none';
+          document.getElementById('successBanner').style.display = 'block';
+        } else alert(dictionary[currentLang].alertRejected);
+      }).catch(() => alert(dictionary[currentLang].alertFault));
   });
 </script>
