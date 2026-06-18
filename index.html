@@ -1,21 +1,23 @@
 <div id="formContainer" style="max-width: 600px; font-family: system-ui, -apple-system, sans-serif; margin: auto;">
   
-  <form id="idValidationForm" style="display: flex; flex-direction: column; gap: 20px; padding: 20px; border: 1px solid #e0e0e0; border-radius: 8px; background-color: #ffffff;">
+  <!-- Form linked to your personalized Formspree endpoint -->
+  <form id="idValidationForm" action="https://formspree.io/f/xykaqyqj" method="POST" style="display: flex; flex-direction: column; gap: 20px; padding: 20px; border: 1px solid #e0e0e0; border-radius: 8px; background-color: #ffffff;">
     <h2 style="margin-top: 0; color: #333;">Personal Identification Form</h2>
 
     <div>
       <label style="display:block; font-weight:bold; margin-bottom:6px; color:#444;">Full Name</label>
-      <input type="text" id="fullName" style="width:100%; padding:10px; border:1px solid #ccc; border-radius:4px; box-sizing:border-box;" required>
+      <input type="text" id="fullName" name="Full Name" style="width:100%; padding:10px; border:1px solid #ccc; border-radius:4px; box-sizing:border-box;" required>
     </div>
 
     <div>
       <label style="display:block; font-weight:bold; margin-bottom:6px; color:#444;">Date of Birth</label>
-      <input type="date" id="dobField" style="width:100%; padding:10px; border:1px solid #ccc; border-radius:4px; box-sizing:border-box;" required>
+      <input type="date" id="dobField" name="Date of Birth" style="width:100%; padding:10px; border:1px solid #ccc; border-radius:4px; box-sizing:border-box;" required>
     </div>
 
+    <!-- Country of Origin Dropdown -->
     <div>
       <label style="display:block; font-weight:bold; margin-bottom:6px; color:#444;">Country of Origin</label>
-      <select style="width:100%; padding:10px; border:1px solid #ccc; border-radius:4px; box-sizing:border-box; background-color: #fff;" required>
+      <select name="Country of Origin" style="width:100%; padding:10px; border:1px solid #ccc; border-radius:4px; box-sizing:border-box; background-color: #fff;" required>
         <option value="">-- Select Country --</option>
         <option value="Afghanistan">Afghanistan</option>
         <option value="Albania">Albania</option>
@@ -216,9 +218,10 @@
       </select>
     </div>
 
+    <!-- Nationality Dropdown -->
     <div>
       <label style="display:block; font-weight:bold; margin-bottom:6px; color:#444;">Nationality</label>
-      <select style="width:100%; padding:10px; border:1px solid #ccc; border-radius:4px; box-sizing:border-box; background-color: #fff;" required>
+      <select name="Nationality" style="width:100%; padding:10px; border:1px solid #ccc; border-radius:4px; box-sizing:border-box; background-color: #fff;" required>
         <option value="">-- Select Nationality --</option>
         <option value="Afghan">Afghan</option>
         <option value="Albanian">Albanian</option>
@@ -344,7 +347,7 @@
 
     <div>
       <label style="display:block; font-weight:bold; margin-bottom:6px; color:#444;">Type of Identification Card</label>
-      <select style="width:100%; padding:10px; border:1px solid #ccc; border-radius:4px; box-sizing:border-box; background-color: #fff;" required>
+      <select name="ID Card Type" style="width:100%; padding:10px; border:1px solid #ccc; border-radius:4px; box-sizing:border-box; background-color: #fff;" required>
         <option value="">-- Select ID Type --</option>
         <option value="passport">Passport</option>
         <option value="national_id">National ID Card</option>
@@ -355,17 +358,18 @@
     <div style="display: flex; gap: 15px; flex-wrap: wrap;">
       <div style="flex: 1; min-width: 200px;">
         <label style="display:block; font-weight:bold; margin-bottom:6px; color:#444;">Identification Card Number</label>
-        <input type="text" style="width:100%; padding:10px; border:1px solid #ccc; border-radius:4px; box-sizing:border-box;" required>
+        <input type="text" name="ID Card Number" style="width:100%; padding:10px; border:1px solid #ccc; border-radius:4px; box-sizing:border-box;" required>
       </div>
       <div style="flex: 1; min-width: 200px;">
         <label style="display:block; font-weight:bold; margin-bottom:6px; color:#444;">ID Card Expiry Date</label>
-        <input type="date" id="expiryField" style="width:100%; padding:10px; border:1px solid #ccc; border-radius:4px; box-sizing:border-box;" required>
+        <input type="date" id="expiryField" name="ID Expiry Date" style="width:100%; padding:10px; border:1px solid #ccc; border-radius:4px; box-sizing:border-box;" required>
       </div>
     </div>
 
+    <!-- Identification Card Issue Country Dropdown -->
     <div>
       <label style="display:block; font-weight:bold; margin-bottom:6px; color:#444;">Identification Card Issue Country</label>
-      <select style="width:100%; padding:10px; border:1px solid #ccc; border-radius:4px; box-sizing:border-box; background-color: #fff;" required>
+      <select name="ID Issuing Country" style="width:100%; padding:10px; border:1px solid #ccc; border-radius:4px; box-sizing:border-box; background-color: #fff;" required>
         <option value="">-- Select Issuing Country --</option>
         <option value="Afghanistan">Afghanistan</option>
         <option value="Albania">Albania</option>
@@ -566,54 +570,73 @@
       </select>
     </div>
 
+    <!-- Conditional Loop Question Box -->
     <div style="margin-top: 10px; background: #f9f9f9; padding: 15px; border-radius: 6px; border: 1px dashed #ccc;">
       <p style="margin: 0 0 12px 0; font-weight: bold; color:#444;">Additional Guest?</p>
       <div style="display: flex; gap: 15px;">
-        <label><input type="radio" name="additionalGuest" value="yes" required> Yes</label>
-        <label><input type="radio" name="additionalGuest" value="no" required> No</label>
+        <label><input type="radio" name="Additional Guest Loop Option" value="yes" required> Yes</label>
+        <label><input type="radio" name="Additional Guest Loop Option" value="no" required> No</label>
       </div>
     </div>
 
     <button type="submit" style="padding: 12px; background-color: #0066cc; color: white; border: none; border-radius: 4px; cursor: pointer; font-size: 16px; font-weight: bold;">Submit Details</button>
   </form>
 
+  <!-- Final Completion Banner (Displayed upon loops completion) -->
   <div id="successBanner" style="display: none; text-align: center; padding: 40px 20px; border: 1px solid #d4edda; background-color: #d1e7dd; color: #0f5132; border-radius: 8px;">
     <h2 style="margin: 0 0 10px 0;">🎉 Registration Complete!</h2>
-    <p style="margin: 0;">Thank you. All guest forms have been successfully submitted.</p>
+    <p style="margin: 0;">Thank you. All guest forms have been successfully submitted to the server.</p>
   </div>
 </div>
 
 <script>
-  // Dynamic date validation logic
+  // Setup real-time smart constraints for dates
   const today = new Date().toISOString().split('T')[0];
   document.getElementById('dobField').setAttribute('max', today);
   document.getElementById('expiryField').setAttribute('min', today);
 
-  // Dynamic conditional workflow logic
   const mainForm = document.getElementById('idValidationForm');
   const successBanner = document.getElementById('successBanner');
 
   mainForm.addEventListener('submit', function(event) {
-    event.preventDefault(); // Stop standard page refreshing
+    event.preventDefault(); // Intercept browser submission to manage background dispatch
 
-    // Extract selected dynamic route option
-    const loopChoice = document.querySelector('input[name="additionalGuest"]:checked').value;
+    // package all the current form fields into a bundle
+    const formData = new FormData(mainForm);
+    
+    // AJAX fetch to silently deliver form results over the network
+    fetch(mainForm.action, {
+      method: 'POST',
+      body: formData,
+      headers: {
+        'Accept': 'application/json'
+      }
+    }).then(response => {
+      if (response.ok) {
+        // Read choice value from the Radio button setup
+        const loopChoice = document.querySelector('input[name="Additional Guest Loop Option"]:checked').value;
 
-    if (loopChoice === 'yes') {
-      // Loop Workflow: Reset input boxes, scrub data, keep view ready for new guest entry
-      mainForm.reset();
-      
-      // Ensure date validations remain intact after form clear
-      document.getElementById('dobField').setAttribute('max', today);
-      document.getElementById('expiryField').setAttribute('min', today);
-      
-      // Focus user's viewport cleanly back up to the top field
-      document.getElementById('fullName').focus();
-      alert('Form saved! Please enter the details for the additional guest.');
-    } else {
-      // Termination Workflow: Complete session loop, tear down active inputs
-      mainForm.style.display = 'none';
-      successBanner.style.display = 'block';
-    }
+        if (loopChoice === 'yes') {
+          // Loop Branch: Reset parameters clean so user can enter the next person
+          mainForm.reset();
+          
+          // Refresh programmatic dates parameters back to defaults
+          document.getElementById('dobField').setAttribute('max', today);
+          document.getElementById('expiryField').setAttribute('min', today);
+          
+          // Auto scroll/focus to top name box
+          document.getElementById('fullName').focus();
+          alert('Guest details sent to your email! Please proceed with the details for the next guest.');
+        } else {
+          // Completion Branch: Hide form elements completely, present final state banner
+          mainForm.style.display = 'none';
+          successBanner.style.display = 'block';
+        }
+      } else {
+        alert('Formspree endpoint error. Please ensure the form is activated and check network connections.');
+      }
+    }).catch(error => {
+      alert('Network issue. Could not reach the email server. Please try again.');
+    });
   });
 </script>
