@@ -580,8 +580,12 @@
   <div id="loopDecisionBox" style="background: #f9f9f9; padding: 15px; border-radius: 0 0 8px 8px; border: 1px solid #e0e0e0; border-top: 1px dashed #ccc;">
     <p style="margin: 0 0 12px 0; font-weight: bold; color:#444;">Additional Guest?</p>
     <div style="display: flex; gap: 15px;">
-      <label style="cursor: pointer;"><input type="radio" name="Loop_Option" value="yes" id="radioYes"> Yes</label>
-      <label style="cursor: pointer;"><input type="radio" name="Loop_Option" value="no" id="radioNo"> No</label>
+      <label style="cursor: pointer;">
+        <input type="radio" name="Loop_Option" value="yes" id="radioYes" onclick="handleYesClick()"> Yes
+      </label>
+      <label style="cursor: pointer;">
+        <input type="radio" name="Loop_Option" value="no" id="radioNo" onclick="handleNoClick()"> No
+      </label>
     </div>
   </div>
 
@@ -601,42 +605,37 @@
   }
   setDateConstraints(document.getElementById('guestBlock_1'));
 
-  // Logic to handle dynamic updates purely in memory
-  document.getElementById('loopDecisionBox').addEventListener('change', function(e) {
-    if (e.target && e.target.name === 'Loop_Option') {
-      const submitBtn = document.getElementById('submitBtn');
-      
-      if (e.target.value === 'yes') {
-        // 1. Instantly hide the submit button if they select Yes
-        submitBtn.style.display = 'none'; 
-        
-        // 2. Uncheck the radio buttons right away so the user can click them again later
-        document.getElementById('radioYes').checked = false;
-        document.getElementById('radioNo').checked = false;
-        
-        // 3. Directly clone and slide in the next block without interrupting fields
-        addNewGuestBlock();
-        
-      } else if (e.target.value === 'no') {
-        // Show submission button *only* when they explicitly declare they are done
-        submitBtn.style.display = 'block';
-        submitBtn.scrollIntoView({ behavior: 'smooth' });
-      }
-    }
-  });
+  // Direct, un-interceptable window-scoped operations
+  window.handleYesClick = function() {
+    // 1. Force hide the submit button instantly
+    const submitBtn = document.getElementById('submitBtn');
+    submitBtn.style.display = 'none';
+
+    // 2. Clear radio state flags immediately
+    document.getElementById('radioYes').checked = false;
+    document.getElementById('radioNo').checked = false;
+
+    // 3. Directly run layout extension generator
+    addNewGuestBlock();
+  };
+
+  window.handleNoClick = function() {
+    // Force show the unified single-payload submit button
+    const submitBtn = document.getElementById('submitBtn');
+    submitBtn.style.display = 'block';
+    submitBtn.scrollIntoView({ behavior: 'smooth' });
+  };
 
   function addNewGuestBlock() {
     guestCount++;
     const container = document.getElementById('allGuestsContainer');
     const originalBlock = document.getElementById('guestBlock_1');
     
-    // Create a precise copy of the input fields
     const clonedBlock = originalBlock.cloneNode(true);
     clonedBlock.id = `guestBlock_${guestCount}`;
     
     clonedBlock.querySelector('.guest-title').innerText = `Guest #${guestCount}`;
     
-    // Reset all fields so the user gets a fresh form setup down the page
     clonedBlock.querySelectorAll('input, select').forEach(input => {
       input.value = '';
       const baseName = input.name.replace(/_\d+$/, '');
@@ -646,11 +645,11 @@
     container.appendChild(clonedBlock);
     setDateConstraints(clonedBlock);
 
-    // Smooth UX auto scroll into the active fresh layout block
+    // Smooth scroll straight into the brand new guest form panel
     clonedBlock.scrollIntoView({ behavior: 'smooth' });
   }
 
-  // Handle ultimate unified backend dispatch to FormBold
+  // Final Single-Payload form processor endpoint connector
   const mainForm = document.getElementById('idValidationForm');
   const loopDecisionBox = document.getElementById('loopDecisionBox');
   const successBanner = document.getElementById('successBanner');
@@ -672,10 +671,10 @@
         loopDecisionBox.style.display = 'none';
         successBanner.style.display = 'block';
       } else {
-        alert('FormBold rejected the submission. Please confirm your email is verified and the form is enabled in your FormBold dashboard.');
+        alert('FormBold rejected submission. Check if endpoint is verified.');
       }
     }).catch(error => {
-      alert('Network fault. The submission couldn\'t reach FormBold. Check your connection or endpoint status.');
+      alert('Network fault encountered during payload delivery transmission.');
     });
   });
 </script>
