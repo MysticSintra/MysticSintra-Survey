@@ -1,7 +1,6 @@
 <div id="formContainer" style="max-width: 600px; font-family: system-ui, -apple-system, sans-serif; margin: auto;">
   
-  <!-- Form linked to your personalized Formspree endpoint -->
-  <form id="idValidationForm" action="https://formspree.io/f/xykaqyqj" method="POST" style="display: flex; flex-direction: column; gap: 20px; padding: 20px; border: 1px solid #e0e0e0; border-radius: 8px; background-color: #ffffff;">
+  <form id="idValidationForm" action="https://formspree.io/f/xwvjdppj" method="POST" style="display: flex; flex-direction: column; gap: 20px; padding: 20px; border: 1px solid #e0e0e0; border-radius: 8px; background-color: #ffffff;">
     <h2 style="margin-top: 0; color: #333;">Personal Identification Form</h2>
 
     <div>
@@ -14,7 +13,6 @@
       <input type="date" id="dobField" name="Date of Birth" style="width:100%; padding:10px; border:1px solid #ccc; border-radius:4px; box-sizing:border-box;" required>
     </div>
 
-    <!-- Country of Origin Dropdown -->
     <div>
       <label style="display:block; font-weight:bold; margin-bottom:6px; color:#444;">Country of Origin</label>
       <select name="Country of Origin" style="width:100%; padding:10px; border:1px solid #ccc; border-radius:4px; box-sizing:border-box; background-color: #fff;" required>
@@ -218,7 +216,6 @@
       </select>
     </div>
 
-    <!-- Nationality Dropdown -->
     <div>
       <label style="display:block; font-weight:bold; margin-bottom:6px; color:#444;">Nationality</label>
       <select name="Nationality" style="width:100%; padding:10px; border:1px solid #ccc; border-radius:4px; box-sizing:border-box; background-color: #fff;" required>
@@ -366,7 +363,6 @@
       </div>
     </div>
 
-    <!-- Identification Card Issue Country Dropdown -->
     <div>
       <label style="display:block; font-weight:bold; margin-bottom:6px; color:#444;">Identification Card Issue Country</label>
       <select name="ID Issuing Country" style="width:100%; padding:10px; border:1px solid #ccc; border-radius:4px; box-sizing:border-box; background-color: #fff;" required>
@@ -570,7 +566,6 @@
       </select>
     </div>
 
-    <!-- Conditional Loop Question Box -->
     <div style="margin-top: 10px; background: #f9f9f9; padding: 15px; border-radius: 6px; border: 1px dashed #ccc;">
       <p style="margin: 0 0 12px 0; font-weight: bold; color:#444;">Additional Guest?</p>
       <div style="display: flex; gap: 15px;">
@@ -582,7 +577,6 @@
     <button type="submit" style="padding: 12px; background-color: #0066cc; color: white; border: none; border-radius: 4px; cursor: pointer; font-size: 16px; font-weight: bold;">Submit Details</button>
   </form>
 
-  <!-- Final Completion Banner (Displayed upon loops completion) -->
   <div id="successBanner" style="display: none; text-align: center; padding: 40px 20px; border: 1px solid #d4edda; background-color: #d1e7dd; color: #0f5132; border-radius: 8px;">
     <h2 style="margin: 0 0 10px 0;">🎉 Registration Complete!</h2>
     <p style="margin: 0;">Thank you. All guest forms have been successfully submitted to the server.</p>
@@ -590,7 +584,7 @@
 </div>
 
 <script>
-  // Setup real-time smart constraints for dates
+  // Setup standard date rules based on today's calendar date
   const today = new Date().toISOString().split('T')[0];
   document.getElementById('dobField').setAttribute('max', today);
   document.getElementById('expiryField').setAttribute('min', today);
@@ -599,12 +593,11 @@
   const successBanner = document.getElementById('successBanner');
 
   mainForm.addEventListener('submit', function(event) {
-    event.preventDefault(); // Intercept browser submission to manage background dispatch
+    event.preventDefault(); // Intercept browser redirect loops
 
-    // package all the current form fields into a bundle
     const formData = new FormData(mainForm);
     
-    // AJAX fetch to silently deliver form results over the network
+    // Background execution dispatch straight to your Formspree dashboard
     fetch(mainForm.action, {
       method: 'POST',
       body: formData,
@@ -613,30 +606,29 @@
       }
     }).then(response => {
       if (response.ok) {
-        // Read choice value from the Radio button setup
         const loopChoice = document.querySelector('input[name="Additional Guest Loop Option"]:checked').value;
 
         if (loopChoice === 'yes') {
-          // Loop Branch: Reset parameters clean so user can enter the next person
+          // Loop Branch: Reset parameters clean for the next person
           mainForm.reset();
           
-          // Refresh programmatic dates parameters back to defaults
+          // Re-establish baseline constraints after a reset trigger
           document.getElementById('dobField').setAttribute('max', today);
           document.getElementById('expiryField').setAttribute('min', today);
           
-          // Auto scroll/focus to top name box
+          // Move layout scroll context focus cleanly back to the top form text box
           document.getElementById('fullName').focus();
           alert('Guest details sent to your email! Please proceed with the details for the next guest.');
         } else {
-          // Completion Branch: Hide form elements completely, present final state banner
+          // Finish Branch: Hide layout frame, reveal final confirmation card
           mainForm.style.display = 'none';
           successBanner.style.display = 'block';
         }
       } else {
-        alert('Formspree endpoint error. Please ensure the form is activated and check network connections.');
+        alert('Formspree response issue. Please confirm the form is active in your dashboard dashboard.');
       }
     }).catch(error => {
-      alert('Network issue. Could not reach the email server. Please try again.');
+      alert('Network transmission failed. Check internet access parameters and try again.');
     });
   });
 </script>
