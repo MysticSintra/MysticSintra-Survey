@@ -2,12 +2,12 @@
   
   <div style="display: flex; justify-content: flex-end; margin-bottom: 15px; padding-right: 5px; gap: 8px; align-items: center;">
     <label style="font-size: 14px; font-weight: bold; color: #555;" data-i18n="langLbl">Language:</label>
-    <select id="langSelector" onchange="changeLanguage(this.value)" style="padding: 8px 16px; border: 2px solid #0066cc; border-radius: 6px; background: #fff; color: #0066cc; font-weight: bold; font-size: 14px; cursor: pointer; box-shadow: 0 2px 4px rgba(0,0,0,0.1);">
-      <option value="en">🇺🇸 English</option>
-      <option value="es">🇪🇸 Español</option>
-      <option value="fr">🇫🇷 Français</option>
-      <option value="pt">🇵🇹 Português</option>
-      <option value="zh">🇨🇳 简体中文 (Mandarin)</option>
+    <select id="langSelector" onchange="changeLanguage(this.value)" style="padding: 8px 16px; border: 1px solid #ccc; border-radius: 6px; background: #fff; color: #333; font-weight: bold; font-size: 14px; cursor: pointer; box-shadow: 0 1px 3px rgba(0,0,0,0.05); outline: none;">
+      <option value="en">English</option>
+      <option value="es">Español</option>
+      <option value="fr">Français</option>
+      <option value="pt">Português</option>
+      <option value="zh">中文 (Mandarin)</option>
     </select>
   </div>
 
@@ -82,7 +82,7 @@
       </div>
     </div>
 
-    <button type="submit" id="submitBtn" style="display: none; padding: 12px; background: #0066cc; color: white; border: none; border-radius: 4px; cursor: pointer; font-size: 16px; font-weight: bold; margin-bottom: 10px;" data-i18n="submitBtn">Submit Details</button>
+    <button type="submit" id="submitBtn" style="display: none; padding: 14px; background: #0066cc; color: white; border: none; border-radius: 6px; cursor: pointer; font-size: 16px; font-weight: bold; margin-bottom: 10px;" data-i18n="submitBtn">Submit Details</button>
   </form>
 
   <div id="loopDecisionBox" style="background: #f9f9f9; padding: 15px; border-radius: 0 0 8px 8px; border: 1px solid #e0e0e0; border-top: 1px dashed #ccc;">
@@ -103,10 +103,11 @@
   let guestCount = 1, currentLang = 'en';
   const today = new Date().toISOString().split('T')[0];
 
+  // Refactored Translation Engine Matrix Database
   const dictionary = {
     en: { langLbl: "Language:", formTitle: "Personal Identification Form", guestPrefix: "Guest", fullName: "Full Name", dob: "Date of Birth", countryOrigin: "Country of Origin", placeholderCountry: "-- Select Country --", placeholderNationality: "-- Select Nationality --", nationality: "Nationality", idType: "Type of Identification Card", placeholderIdType: "-- Select ID Type --", passport: "Passport", nationalId: "National ID Card", idNum: "Identification Card Number", idExp: "ID Card Expiry Date", issueCountry: "Identification Card Issue Country", placeholderIssue: "-- Select Issuing Country --", additionalGuest: "Additional Guest?", yes: "Yes", no: "No", submitBtn: "Submit Details", successTitle: "🎉 Registration Complete!", alertRejected: "FormBold rejected submission.", alertFault: "Network error encountered." },
     es: { langLbl: "Idioma:", formTitle: "Formulario de Identificación Personal", guestPrefix: "Huésped", fullName: "Nombre Completo", dob: "Fecha de Nacimiento", countryOrigin: "País de Origen", placeholderCountry: "-- Seleccionar País --", placeholderNationality: "-- Seleccionar Nacionalidad --", nationality: "Nacionalidad", idType: "Tipo de Documento", placeholderIdType: "-- Seleccionar Tipo de ID --", passport: "Pasaporte", nationalId: "Documento Nacional de Identidad", idNum: "Número de Identidad", idExp: "Fecha de Vencimiento", issueCountry: "País de Emisión", placeholderIssue: "-- Seleccionar País Emisor --", additionalGuest: "¿Huésped Adicional?", yes: "Sí", no: "No", submitBtn: "Enviar Detalles", successTitle: "🎉 ¡Registro Completado!", alertRejected: "Envío rechazado.", alertFault: "Error de red detectado." },
-    fr: { langLbl: "Langue:", formTitle: "Formulaire d'Identification", guestPrefix: "Client", fullName: "Nom Complet", dob: "Date de Naissance", countryOrigin: "Pays d'Origine", placeholderCountry: "-- Sélectionner le Pays --", placeholderNationality: "-- Sélectionner la Nationalité --", nationality: "Nationalité", idType: "Type de Carte d'Identité", placeholderIdType: "-- Sélectionner le Type d'ID --", passport: "Passeport", nationalId: "Carte Nationale d'Identité", idNum: "Numéro de Carte", idExp: "Date d'Expiration", issueCountry: "Pays d'Émission", placeholderIssue: "-- Sélectionner le Pays Émetteur --", additionalGuest: "Client Supplémentaire ?", yes: "Oui", no: "Non", submitBtn: "Soumettre", successTitle: "🎉 Inscription Réussie !", alertRejected: "Formulaire rejeté.", alertFault: "Erreur réseau rencontreé." },
+    fr: { langLbl: "Langue:", formTitle: "Formulaire d'Identification", guestPrefix: "Client", fullName: "Nom Complet", dob: "Date de Naissance", countryOrigin: "Pays d'Origine", placeholderCountry: "-- Sélectionner le Pays --", placeholderNationality: "-- Sélectionner la Nationalité --", nationality: "Nationalité", idType: "Type de Carte d'Identité", placeholderIdType: "-- Sélectionner le Type d'ID --", passport: "Passeport", nationalId: "Carte Nationale d'Identité", idNum: "Numéro de Carte", idExp: "Date d'Expiration", issueCountry: "Pays d'Émission", placeholderIssue: "-- Sélectionner le Pays Émetteur --", additionalGuest: "Client Supplémentaire ?", yes: "Oui", no: "Non", submitBtn: "Soumettre", successTitle: "🎉 Inscription Réussie !", alertRejected: "Formulaire rejeté.", alertFault: "Erreur réseau rencontrée." },
     pt: { langLbl: "Idioma:", formTitle: "Formulário de Identificação Pessoal", guestPrefix: "Hóspede", fullName: "Nome Completo", dob: "Data de Nascimento", countryOrigin: "País de Origem", placeholderCountry: "-- Selecionar País --", placeholderNationality: "-- Selecionar Nacionalidade --", nationality: "Nacionalidade", idType: "Tipo de Documento de Identidade", placeholderIdType: "-- Selecionar Tipo de ID --", passport: "Passaporte", nationalId: "Cartão de Cidadão / RG", idNum: "Número do Documento", idExp: "Data de Validade do ID", issueCountry: "País de Emissão do Documento", placeholderIssue: "-- Selecionar País Emissor --", additionalGuest: "Hóspede Adicional?", yes: "Sim", no: "Não", submitBtn: "Enviar Detalhes", successTitle: "🎉 Inscrição Concluída!", alertRejected: "FormBold rejeitou o envio.", alertFault: "Erro de rede encontrado." },
     zh: { langLbl: "语言:", formTitle: "个人身份登记表", guestPrefix: "住客", fullName: "姓名", dob: "出生日期", countryOrigin: "原产国", placeholderCountry: "-- 选择国家 --", placeholderNationality: "-- 选择国籍 --", nationality: "国籍", idType: "证件类型", placeholderIdType: "-- 选择证件类型 --", passport: "护照", nationalId: "国民身份证", idNum: "证件号码", idExp: "证件有效期", issueCountry: "发证国家", placeholderIssue: "-- 选择发证国家 --", additionalGuest: "是否添加随行住客？", yes: "是", no: "否", submitBtn: "提交信息", successTitle: "🎉 登记成功！", alertRejected: "表单提交失败。", alertFault: "网络连接错误。" }
   };
