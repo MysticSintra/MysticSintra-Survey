@@ -580,8 +580,8 @@
   <div id="loopDecisionBox" style="background: #f9f9f9; padding: 15px; border-radius: 0 0 8px 8px; border: 1px solid #e0e0e0; border-top: 1px dashed #ccc;">
     <p style="margin: 0 0 12px 0; font-weight: bold; color:#444;">Additional Guest?</p>
     <div style="display: flex; gap: 15px;">
-      <label style="cursor: pointer;"><input type="radio" name="Loop_Option" value="yes"> Yes</label>
-      <label style="cursor: pointer;"><input type="radio" name="Loop_Option" value="no"> No</label>
+      <label style="cursor: pointer;"><input type="radio" name="Loop_Option" value="yes" id="radioYes"> Yes</label>
+      <label style="cursor: pointer;"><input type="radio" name="Loop_Option" value="no" id="radioNo"> No</label>
     </div>
   </div>
 
@@ -601,7 +601,7 @@
   }
   setDateConstraints(document.getElementById('guestBlock_1'));
 
-  // Logic to safely handle dynamic updates outside form lifecycle
+  // Logic to handle dynamic updates purely in memory
   document.getElementById('loopDecisionBox').addEventListener('change', function(e) {
     if (e.target && e.target.name === 'Loop_Option') {
       const submitBtn = document.getElementById('submitBtn');
@@ -610,28 +610,15 @@
         // 1. Instantly hide the submit button if they select Yes
         submitBtn.style.display = 'none'; 
         
-        // 2. Validate current fields before extending form downwards
-        const currentFields = document.getElementById(`guestBlock_${guestCount}`).querySelectorAll('input, select');
-        let isValid = true;
+        // 2. Uncheck the radio buttons right away so the user can click them again later
+        document.getElementById('radioYes').checked = false;
+        document.getElementById('radioNo').checked = false;
         
-        currentFields.forEach(field => {
-          if (!field.checkValidity()) {
-            isValid = false;
-            field.reportValidity(); // Highlight exact missing requirement
-          }
-        });
-
-        if (!isValid) {
-          e.target.checked = false; // Reset radio button if validation fails
-          return; 
-        }
-
-        // 3. Add next clean list of questions seamlessly downward
-        e.target.checked = false; 
+        // 3. Directly clone and slide in the next block without interrupting fields
         addNewGuestBlock();
         
       } else if (e.target.value === 'no') {
-        // Show submission engine button only when user selects No
+        // Show submission button *only* when they explicitly declare they are done
         submitBtn.style.display = 'block';
         submitBtn.scrollIntoView({ behavior: 'smooth' });
       }
@@ -643,11 +630,13 @@
     const container = document.getElementById('allGuestsContainer');
     const originalBlock = document.getElementById('guestBlock_1');
     
+    // Create a precise copy of the input fields
     const clonedBlock = originalBlock.cloneNode(true);
     clonedBlock.id = `guestBlock_${guestCount}`;
     
     clonedBlock.querySelector('.guest-title').innerText = `Guest #${guestCount}`;
     
+    // Reset all fields so the user gets a fresh form setup down the page
     clonedBlock.querySelectorAll('input, select').forEach(input => {
       input.value = '';
       const baseName = input.name.replace(/_\d+$/, '');
@@ -657,11 +646,11 @@
     container.appendChild(clonedBlock);
     setDateConstraints(clonedBlock);
 
-    // Smooth UX auto scroll
+    // Smooth UX auto scroll into the active fresh layout block
     clonedBlock.scrollIntoView({ behavior: 'smooth' });
   }
 
-  // Handle ultimate unified backend dispatch
+  // Handle ultimate unified backend dispatch to FormBold
   const mainForm = document.getElementById('idValidationForm');
   const loopDecisionBox = document.getElementById('loopDecisionBox');
   const successBanner = document.getElementById('successBanner');
