@@ -1,22 +1,24 @@
 <div id="formContainer" style="max-width: 600px; font-family: system-ui, -apple-system, sans-serif; margin: auto;">
   
-  <form id="idValidationForm" action="https://formspree.io/f/xwvjdppj" method="POST" style="display: flex; flex-direction: column; gap: 20px; padding: 20px; border: 1px solid #e0e0e0; border-radius: 8px; background-color: #ffffff;">
+  <!-- Form configured with your live FormBold endpoint -->
+  <form id="idValidationForm" action="https://formbold.com/s/oeYDj" method="POST" style="display: flex; flex-direction: column; gap: 20px; padding: 20px; border: 1px solid #e0e0e0; border-radius: 8px; background-color: #ffffff;">
     <h2 style="margin-top: 0; color: #333;">Personal Identification Form</h2>
 
     <div>
       <label style="display:block; font-weight:bold; margin-bottom:6px; color:#444;">Full Name</label>
-      <input type="text" id="fullName" name="Full Name" style="width:100%; padding:10px; border:1px solid #ccc; border-radius:4px; box-sizing:border-box;" required>
+      <input type="text" id="fullName" name="Guest_Name" style="width:100%; padding:10px; border:1px solid #ccc; border-radius:4px; box-sizing:border-box;" required>
     </div>
 
     <div>
       <label style="display:block; font-weight:bold; margin-bottom:6px; color:#444;">Date of Birth</label>
-      <input type="date" id="dobField" name="Date of Birth" style="width:100%; padding:10px; border:1px solid #ccc; border-radius:4px; box-sizing:border-box;" required>
+      <input type="date" id="dobField" name="Ref_DOB" style="width:100%; padding:10px; border:1px solid #ccc; border-radius:4px; box-sizing:border-box;" required>
     </div>
 
+    <!-- Country of Origin Dropdown -->
     <div>
       <label style="display:block; font-weight:bold; margin-bottom:6px; color:#444;">Country of Origin</label>
-      <select name="Country of Origin" style="width:100%; padding:10px; border:1px solid #ccc; border-radius:4px; box-sizing:border-box; background-color: #fff;" required>
-        <option value="">-- Select Country --</option>
+      <select name="Origin_Country" style="width:100%; padding:10px; border:1px solid #ccc; border-radius:4px; box-sizing:border-box; background-color: #fff;" required>
+        <option value="" disabled selected>-- Select Country --</option>
         <option value="Afghanistan">Afghanistan</option>
         <option value="Albania">Albania</option>
         <option value="Algeria">Algeria</option>
@@ -216,10 +218,11 @@
       </select>
     </div>
 
+    <!-- Nationality Dropdown -->
     <div>
       <label style="display:block; font-weight:bold; margin-bottom:6px; color:#444;">Nationality</label>
-      <select name="Nationality" style="width:100%; padding:10px; border:1px solid #ccc; border-radius:4px; box-sizing:border-box; background-color: #fff;" required>
-        <option value="">-- Select Nationality --</option>
+      <select name="Guest_Nationality" style="width:100%; padding:10px; border:1px solid #ccc; border-radius:4px; box-sizing:border-box; background-color: #fff;" required>
+        <option value="" disabled selected>-- Select Nationality --</option>
         <option value="Afghan">Afghan</option>
         <option value="Albanian">Albanian</option>
         <option value="Algerian">Algerian</option>
@@ -344,8 +347,8 @@
 
     <div>
       <label style="display:block; font-weight:bold; margin-bottom:6px; color:#444;">Type of Identification Card</label>
-      <select name="ID Card Type" style="width:100%; padding:10px; border:1px solid #ccc; border-radius:4px; box-sizing:border-box; background-color: #fff;" required>
-        <option value="">-- Select ID Type --</option>
+      <select name="Ref_ID_Type" style="width:100%; padding:10px; border:1px solid #ccc; border-radius:4px; box-sizing:border-box; background-color: #fff;" required>
+        <option value="" disabled selected>-- Select ID Type --</option>
         <option value="passport">Passport</option>
         <option value="national_id">National ID Card</option>
         <option value="drivers_license">Driver's License</option>
@@ -355,18 +358,19 @@
     <div style="display: flex; gap: 15px; flex-wrap: wrap;">
       <div style="flex: 1; min-width: 200px;">
         <label style="display:block; font-weight:bold; margin-bottom:6px; color:#444;">Identification Card Number</label>
-        <input type="text" name="ID Card Number" style="width:100%; padding:10px; border:1px solid #ccc; border-radius:4px; box-sizing:border-box;" required>
+        <input type="text" name="Ref_ID_Num" style="width:100%; padding:10px; border:1px solid #ccc; border-radius:4px; box-sizing:border-box;" required>
       </div>
       <div style="flex: 1; min-width: 200px;">
         <label style="display:block; font-weight:bold; margin-bottom:6px; color:#444;">ID Card Expiry Date</label>
-        <input type="date" id="expiryField" name="ID Expiry Date" style="width:100%; padding:10px; border:1px solid #ccc; border-radius:4px; box-sizing:border-box;" required>
+        <input type="date" id="expiryField" name="Ref_ID_Exp" style="width:100%; padding:10px; border:1px solid #ccc; border-radius:4px; box-sizing:border-box;" required>
       </div>
     </div>
 
+    <!-- Identification Card Issue Country Dropdown -->
     <div>
       <label style="display:block; font-weight:bold; margin-bottom:6px; color:#444;">Identification Card Issue Country</label>
-      <select name="ID Issuing Country" style="width:100%; padding:10px; border:1px solid #ccc; border-radius:4px; box-sizing:border-box; background-color: #fff;" required>
-        <option value="">-- Select Issuing Country --</option>
+      <select name="ID_Issue_Country" style="width:100%; padding:10px; border:1px solid #ccc; border-radius:4px; box-sizing:border-box; background-color: #fff;" required>
+        <option value="" disabled selected>-- Select Issuing Country --</option>
         <option value="Afghanistan">Afghanistan</option>
         <option value="Albania">Albania</option>
         <option value="Algeria">Algeria</option>
@@ -566,17 +570,19 @@
       </select>
     </div>
 
+    <!-- Mandatory Loop Question Box -->
     <div style="margin-top: 10px; background: #f9f9f9; padding: 15px; border-radius: 6px; border: 1px dashed #ccc;">
       <p style="margin: 0 0 12px 0; font-weight: bold; color:#444;">Additional Guest?</p>
       <div style="display: flex; gap: 15px;">
-        <label><input type="radio" name="Additional Guest Loop Option" value="yes" required> Yes</label>
-        <label><input type="radio" name="Additional Guest Loop Option" value="no" required> No</label>
+        <label><input type="radio" name="Loop_Option" value="yes" required> Yes</label>
+        <label><input type="radio" name="Loop_Option" value="no" required> No</label>
       </div>
     </div>
 
     <button type="submit" style="padding: 12px; background-color: #0066cc; color: white; border: none; border-radius: 4px; cursor: pointer; font-size: 16px; font-weight: bold;">Submit Details</button>
   </form>
 
+  <!-- Final Completion Banner -->
   <div id="successBanner" style="display: none; text-align: center; padding: 40px 20px; border: 1px solid #d4edda; background-color: #d1e7dd; color: #0f5132; border-radius: 8px;">
     <h2 style="margin: 0 0 10px 0;">🎉 Registration Complete!</h2>
     <p style="margin: 0;">Thank you. All guest forms have been successfully submitted to the server.</p>
@@ -584,7 +590,7 @@
 </div>
 
 <script>
-  // Setup standard date rules based on today's calendar date
+  // Setup logic baseline criteria using real-time clock references
   const today = new Date().toISOString().split('T')[0];
   document.getElementById('dobField').setAttribute('max', today);
   document.getElementById('expiryField').setAttribute('min', today);
@@ -593,11 +599,11 @@
   const successBanner = document.getElementById('successBanner');
 
   mainForm.addEventListener('submit', function(event) {
-    event.preventDefault(); // Intercept browser redirect loops
+    event.preventDefault(); // Trap page refresh workflows
 
     const formData = new FormData(mainForm);
     
-    // Background execution dispatch straight to your Formspree dashboard
+    // Background dispatch straight to FormBold endpoints
     fetch(mainForm.action, {
       method: 'POST',
       body: formData,
@@ -606,29 +612,29 @@
       }
     }).then(response => {
       if (response.ok) {
-        const loopChoice = document.querySelector('input[name="Additional Guest Loop Option"]:checked').value;
+        const loopChoice = document.querySelector('input[name="Loop_Option"]:checked').value;
 
         if (loopChoice === 'yes') {
-          // Loop Branch: Reset parameters clean for the next person
+          // Loop Branch execution context: Flush canvas, reset form data
           mainForm.reset();
           
-          // Re-establish baseline constraints after a reset trigger
+          // Re-establish tracking constraints post-wipe
           document.getElementById('dobField').setAttribute('max', today);
           document.getElementById('expiryField').setAttribute('min', today);
           
-          // Move layout scroll context focus cleanly back to the top form text box
+          // Set window focus target context
           document.getElementById('fullName').focus();
-          alert('Guest details sent to your email! Please proceed with the details for the next guest.');
+          alert('Guest details sent! Please proceed with the details for the next guest.');
         } else {
-          // Finish Branch: Hide layout frame, reveal final confirmation card
+          // Terminate loop: Hide input container layout, draw success banner view
           mainForm.style.display = 'none';
           successBanner.style.display = 'block';
         }
       } else {
-        alert('Formspree response issue. Please confirm the form is active in your dashboard dashboard.');
+        alert('FormBold server response fault. Ensure your target unique endpoint token is pasted correctly.');
       }
     }).catch(error => {
-      alert('Network transmission failed. Check internet access parameters and try again.');
+      alert('Network fault. The submission couldn\'t reach FormBold. Check connections and try again.');
     });
   });
 </script>
