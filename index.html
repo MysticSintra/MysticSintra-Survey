@@ -1,8 +1,8 @@
-<div id="formContainer_v3" style="max-width: 600px; font-family: system-ui, -apple-system, sans-serif; margin: auto; position: relative; padding-top: 10px;">
+<div id="formContainer_v4" style="max-width: 600px; font-family: system-ui, -apple-system, sans-serif; margin: auto; position: relative; padding-top: 10px;">
   
   <div style="display: flex; justify-content: flex-end; margin-bottom: 15px; padding-right: 5px; gap: 8px; align-items: center;">
     <label style="font-size: 14px; font-weight: bold; color: #555;" data-i18n="langLbl">Language:</label>
-    <select id="langSelector_v3" onchange="changeLanguage(this.value)" style="padding: 8px 16px; border: 1px solid #ccc; border-radius: 6px; background: #fff; color: #333; font-weight: bold; font-size: 14px; cursor: pointer; box-shadow: 0 1px 3px rgba(0,0,0,0.05); outline: none;">
+    <select id="langSelector_v4" onchange="changeLanguage(this.value)" style="padding: 8px 16px; border: 1px solid #ccc; border-radius: 6px; background: #fff; color: #333; font-weight: bold; font-size: 14px; cursor: pointer; box-shadow: 0 1px 3px rgba(0,0,0,0.05); outline: none;">
       <option value="en">English</option>
       <option value="es">Español</option>
       <option value="fr">Français</option>
@@ -11,7 +11,7 @@
     </select>
   </div>
 
-  <form id="idValidationForm_v3" action="https://formbold.com/s/oeYDj" method="POST" style="display: flex; flex-direction: column; gap: 20px; padding: 20px; border: 1px solid #e0e0e0; border-radius: 8px 8px 0 0; background: #fff; border-bottom: none;">
+  <form id="idValidationForm_v4" action="https://formbold.com/s/oeYDj" method="POST" style="display: flex; flex-direction: column; gap: 20px; padding: 20px; border: 1px solid #e0e0e0; border-radius: 8px 8px 0 0; background: #fff; border-bottom: none;">
     <h2 id="formTitle" style="margin-top: 0; color: #333;" data-i18n="formTitle">Personal Identification Form</h2>
 
     <div id="allGuestsContainer">
@@ -30,21 +30,15 @@
 
         <div>
           <label style="display:block; font-weight:bold; margin-bottom:6px; color:#444;" data-i18n="countryOrigin">Country of Origin</label>
-          <select name="Origin_Country_1" style="width:100%; padding:10px; border:1px solid #ccc; border-radius:4px; box-sizing:border-box; background: #fff;" required>
+          <select name="Origin_Country_1" class="country-select" style="width:100%; padding:10px; border:1px solid #ccc; border-radius:4px; box-sizing:border-box; background: #fff;" required>
             <option value="" disabled selected data-i18n="placeholderCountry">-- Select Country --</option>
-            <option value="Afghanistan">Afghanistan</option>
-            <option value="United Kingdom">United Kingdom</option>
-            <option value="United States">United States</option>
           </select>
         </div>
 
         <div>
           <label style="display:block; font-weight:bold; margin-bottom:6px; color:#444;" data-i18n="nationality">Nationality</label>
-          <select name="Guest_Nationality_1" style="width:100%; padding:10px; border:1px solid #ccc; border-radius:4px; box-sizing:border-box; background: #fff;" required>
+          <select name="Guest_Nationality_1" class="nationality-select" style="width:100%; padding:10px; border:1px solid #ccc; border-radius:4px; box-sizing:border-box; background: #fff;" required>
             <option value="" disabled selected data-i18n="placeholderNationality">-- Select Nationality --</option>
-            <option value="American">American</option>
-            <option value="British">British</option>
-            <option value="Portuguese">Portuguese</option>
           </select>
         </div>
 
@@ -72,11 +66,8 @@
 
         <div>
           <label style="display:block; font-weight:bold; margin-bottom:6px; color:#444;" data-i18n="issueCountry">Identification Card Issue Country</label>
-          <select name="ID_Issue_Country_1" style="width:100%; padding:10px; border:1px solid #ccc; border-radius:4px; box-sizing:border-box; background: #fff;" required>
+          <select name="ID_Issue_Country_1" class="issue-country-select" style="width:100%; padding:10px; border:1px solid #ccc; border-radius:4px; box-sizing:border-box; background: #fff;" required>
             <option value="" disabled selected data-i18n="placeholderIssue">-- Select Issuing Country --</option>
-            <option value="Afghanistan">Afghanistan</option>
-            <option value="United Kingdom">United Kingdom</option>
-            <option value="United States">United States</option>
           </select>
         </div>
       </div>
@@ -103,6 +94,11 @@
   let guestCount = 1, currentLang = 'en';
   const today = new Date().toISOString().split('T')[0];
 
+  // Complete standardized global list of countries & nationalities
+  const countries = ["Afghanistan","Albania","Algeria","Andorra","Angola","Antigua and Barbuda","Argentina","Armenia","Australia","Austria","Azerbaijan","Bahamas","Bahrain","Bangladesh","Barbados","Belarus","Belgium","Belize","Benin","Bhutan","Bolivia","Bosnia and Herzegovina","Botswana","Brazil","Brunei","Bulgaria","Burkina Faso","Burundi","Cabo Verde","Cambodia","Cameroon","Canada","Central African Republic","Chad","Chile","China","Colombia","Comoros","Congo","Costa Rica","Croatia","Cuba","Cyprus","Czech Republic","Denmark","Djibouti","Dominica","Dominican Republic","East Timor","Ecuador","Egypt","El Salvador","Equatorial Guinea","Eritrea","Estonia","Eswatini","Ethiopia","Fiji","Finland","France","Gabon","Gambia","Georgia","Germany","Ghana","Greece","Grenada","Guatemala","Guinea","Guinea-Bissau","Guyana","Haiti","Honduras","Hungary","Iceland","India","Indonesia","Iran","Iraq","Ireland","Israel","Italy","Ivory Coast","Jamaica","Japan","Jordan","Kazakhstan","Kenya","Kiribati","Korea, North","Korea, South","Kosovo","Kuwait","Kyrgyzstan","Laos","Latvia","Lebanon","Lesotho","Liberia","Libya","Liechtenstein","Lithuania","Luxembourg","Madagascar","Malawi","Malaysia","Maldives","Mali","Malta","Marshall Islands","Mauritania","Mauritius","Mexico","Micronesia","Moldova","Monaco","Mongolia","Montenegro","Morocco","Mozambique","Myanmar","Namibia","Nauru","Nepal","Netherlands","New Zealand","Nicaragua","Niger","Nigeria","North Macedonia","Norway","Oman","Pakistan","Palau","Panama","Papua New Guinea","Paraguay","Peru","Philippines","Poland","Portugal","Qatar","Romania","Russia","Rwanda","Saint Kitts and Nevis","Saint Lucia","Saint Vincent","Samoa","San Marino","Sao Tome and Principe","Saudi Arabia","Senegal","Serbia","Seychelles","Sierra Leone","Singapore","Slovakia","Slovenia","Solomon Islands","Somalia","South Africa","South Sudan","Spain","Sri Lanka","Sudan","Suriname","Sweden","Switzerland","Syria","Taiwan","Tajikistan","Tanzania","Thailand","Togo","Tonga","Trinidad and Tobago","Tunisia","Turkey","Turkmenistan","Tuvalu","Uganda","Ukraine","United Arab Emirates","United Kingdom","United States","Uruguay","Uzbekistan","Vanuatu","Vatican City","Venezuela","Vietnam","Yemen","Zambia","Zimbabwe"];
+  
+  const nationalities = ["Afghan","Albanian","Algerian","Andorran","Angolan","Antiguan","Argentine","Armenian","Australian","Austrian","Azerbaijani","Bahamian","Bahraini","Bangladeshi","Barbadian","Belarusian","Belgian","Belizean","Beninese","Bhutanese","Bolivian","Bosnian","Botswanan","Brazilian","Bruneian","Bulgarian","Burkinabé","Burundian","Cape Verdean","Cambodian","Cameroonian","Canadian","Central African","Chadian","Chilean","Chinese","Colombian","Comoran","Congolese","Costa Rican","Croatian","Cuban","Cypriot","Czech","Danish","Djoutian","Dominican","East Timorese","Ecuadorian","Egyptian","Salvadorean","Equatorial Guinean","Eritrean","Estonian","Swazi","Ethiopian","Fijian","Finnish","French","Gabonese","Gambian","Georgian","German","Ghanaian","Greek","Grenadian","Guatemalan","Guinean","Bissau-Guinean","Guyanese","Haitian","Honduran","Hungarian","Icelandic","Indian","Indonesian","Iranian","Iraqi","Irish","Israeli","Italian","Ivorian","効率安","Japanese","Jordanian","Kazakhstani","Kenyan","I-Kiribati","North Korean","South Korean","Kosovar","Kuwaiti","Kyrgyz","Laotian","Latvian","Lebanese","Basotho","Liberian","Libyan","Liechtensteiner","Lithuanian","Luxembourger","Malagasy","Malawian","Malaysian","Maldivian","Malian","Maltese","Marshallese","Mauritanian","Mauritian","Mexican","Micronesian","Moldovan","Monegasque","Mongolian","Montenegrin","Moroccan","Mozambican","Burmese","Namibian","Nauruan","Nepali","Dutch","New Zealander","Nicaraguan","Nigerien","Nigerian","Macedonian","Norwegian","Omani","Pakistani","Palauan","Panamanian","Papua New Guinean","Paraguayan","Peruvian","Filipino","Polish","Portuguese","Qatari","Romanian","Russian","Rwandan","Kittitian","Saint Lucian","Vincentian","Samoan","San Marinese","Sao Tomean","Saudi Arabian","Senegalese","Serbian","Seychellois","Sierra Leonean","Singaporean","Slovak","Slovenian","Solomon Islander","Somali","South African","South Sudanese","Spanish","Sri Lankan","Sudanese","Surinamese","Swedish","Swiss","Syrian","Taiwanese","Tajik","Tanzanian","Thai","Togolese","Tongan","Trinidadian","Tunisian","Turkish","Turkmen","Tuvaluan","Ugandan","Ukrainian","Emirati","British","American","Uruguayan","Uzbek","Vanuatuan","Vatican","Venezuelan","Vietnamese","Yemeni","Zambian","Zimbabwean"];
+
   const dictionary = {
     en: { langLbl: "Language:", formTitle: "Personal Identification Form", guestPrefix: "Guest", fullName: "Full Name", dob: "Date of Birth", countryOrigin: "Country of Origin", placeholderCountry: "-- Select Country --", placeholderNationality: "-- Select Nationality --", nationality: "Nationality", idType: "Type of Identification Card", placeholderIdType: "-- Select ID Type --", passport: "Passport", nationalId: "National ID Card", idNum: "Identification Card Number", idExp: "ID Card Expiry Date", issueCountry: "Identification Card Issue Country", placeholderIssue: "-- Select Issuing Country --", additionalGuest: "Additional Guest?", yes: "Yes", no: "No", submitBtn: "Submit Details", successTitle: "🎉 Registration Complete!", alertRejected: "FormBold rejected submission.", alertFault: "Network error encountered." },
     es: { langLbl: "Idioma:", formTitle: "Formulario de Identificación Personal", guestPrefix: "Huésped", fullName: "Nombre Completo", dob: "Fecha de Nacimiento", countryOrigin: "País de Origen", placeholderCountry: "-- Seleccionar País --", placeholderNationality: "-- Seleccionar Nacionalidad --", nationality: "Nacionalidad", idType: "Tipo de Documento", placeholderIdType: "-- Seleccionar Tipo de ID --", passport: "Pasaporte", nationalId: "Documento Nacional de Identidad", idNum: "Número de Identidad", idExp: "Fecha de Vencimiento", issueCountry: "País de Emisión", placeholderIssue: "-- Seleccionar País Emisor --", additionalGuest: "¿Huésped Adicional?", yes: "Sí", no: "No", submitBtn: "Enviar Detalles", successTitle: "🎉 ¡Registro Completado!", alertRejected: "Envío rechazado.", alertFault: "Error de red detectado." },
@@ -110,6 +106,19 @@
     pt: { langLbl: "Idioma:", formTitle: "Formulário de Identificação Pessoal", guestPrefix: "Hóspede", fullName: "Nome Completo", dob: "Data de Nascimento", countryOrigin: "País de Origem", placeholderCountry: "-- Selecionar País --", placeholderNationality: "-- Selecionar Nacionalidade --", nationality: "Nacionalidade", idType: "Tipo de Documento de Identidade", placeholderIdType: "-- Selecionar Tipo de ID --", passport: "Passaporte", nationalId: "Cartão de Cidadão / RG", idNum: "Número do Documento", idExp: "Data de Validade do ID", issueCountry: "País de Emissão do Documento", placeholderIssue: "-- Selecionar País Emissor --", additionalGuest: "Hóspede Adicional?", yes: "Sim", no: "Não", submitBtn: "Enviar Detalhes", successTitle: "🎉 Inscrição Concluída!", alertRejected: "FormBold rejeitou o envio.", alertFault: "Erro de rede encontrado." },
     zh: { langLbl: "语言:", formTitle: "个人身份登记表", guestPrefix: "住客", fullName: "姓名", dob: "出生日期", countryOrigin: "原产国", placeholderCountry: "-- 选择国家 --", placeholderNationality: "-- 选择国籍 --", nationality: "国籍", idType: "证件类型", placeholderIdType: "-- 选择证件类型 --", passport: "护照", nationalId: "国民身份证", idNum: "证件号码", idExp: "证件有效期", issueCountry: "发证国家", placeholderIssue: "-- 选择发证国家 --", additionalGuest: "是否添加随行住客？", yes: "是", no: "否", submitBtn: "提交信息", successTitle: "🎉 登记成功！", alertRejected: "表单提交失败。", alertFault: "网络连接错误。" }
   };
+
+  // Populate list options for a guest block element
+  function populateGeoSelects(block) {
+    const cSelect = block.querySelector('.country-select');
+    const nSelect = block.querySelector('.nationality-select');
+    const iSelect = block.querySelector('.issue-country-select');
+    
+    countries.forEach(c => {
+      cSelect.add(new Option(c, c));
+      iSelect.add(new Option(c, c));
+    });
+    nationalities.forEach(n => nSelect.add(new Option(n, n)));
+  }
 
   function changeLanguage(lang) {
     currentLang = lang;
@@ -123,7 +132,11 @@
     block.querySelector('.dob-field').setAttribute('max', today);
     block.querySelector('.expiry-field').setAttribute('min', today);
   }
-  setupConstraints(document.getElementById('guestBlock_1'));
+
+  // Initialization Setup
+  const primaryBlock = document.getElementById('guestBlock_1');
+  populateGeoSelects(primaryBlock);
+  setupConstraints(primaryBlock);
 
   window.handleLoop = function(addMore) {
     const btn = document.getElementById('submitBtn');
@@ -136,12 +149,17 @@
       cloned.id = `guestBlock_${guestCount}`;
       cloned.querySelector('.g-num').innerText = `#${guestCount}`;
       
+      // Clean up inputs and rewrite names sequentially
       cloned.querySelectorAll('input, select').forEach(input => {
+        if(input.tagName === 'SELECT' && (input.classList.contains('country-select') || input.classList.contains('nationality-select') || input.classList.contains('issue-country-select'))) {
+          input.innerHTML = ''; // Fresh option tree configuration clearance
+        }
         input.value = '';
         input.name = `${input.name.replace(/_\d+$/, '')}_${guestCount}`;
       });
 
       document.getElementById('allGuestsContainer').appendChild(cloned);
+      populateGeoSelects(cloned);
       setupConstraints(cloned);
       changeLanguage(currentLang);
       cloned.scrollIntoView({ behavior: 'smooth' });
@@ -151,7 +169,7 @@
     }
   };
 
-  document.getElementById('idValidationForm_v3').addEventListener('submit', function(e) {
+  document.getElementById('idValidationForm_v4').addEventListener('submit', function(e) {
     e.preventDefault();
     fetch(this.action, { method: 'POST', body: new FormData(this), headers: { 'Accept': 'application/json' } })
       .then(res => {
