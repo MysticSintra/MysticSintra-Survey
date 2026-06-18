@@ -1,10 +1,11 @@
-<div id="formContainer" style="max-width: 600px; font-family: system-ui, -apple-system, sans-serif; margin: auto; position: relative;">
+<div id="formContainer" style="max-width: 600px; font-family: system-ui, -apple-system, sans-serif; margin: auto; position: relative; padding-top: 10px;">
   
-  <div style="display: flex; justify-content: flex-end; margin-bottom: 10px;">
-    <select id="langSelector" onchange="changeLanguage(this.value)" style="padding: 6px 12px; border: 1px solid #ccc; border-radius: 4px; background-color: #fff; font-weight: bold; cursor: pointer;">
-      <option value="en">English</option>
-      <option value="es">Español</option>
-      <option value="fr">Français</option>
+  <div style="display: flex; justify-content: flex-end; margin-bottom: 15px; padding-right: 5px;">
+    <label for="langSelector" style="font-size: 14px; font-weight: bold; color: #555; margin-right: 8px; align-self: center;">Language / Idioma / Langue:</label>
+    <select id="langSelector" onchange="changeLanguage(this.value)" style="padding: 8px 16px; border: 2px solid #0066cc; border-radius: 6px; background-color: #ffffff; color: #0066cc; font-weight: bold; font-size: 14px; cursor: pointer; outline: none; box-shadow: 0 2px 4px rgba(0,0,0,0.1);">
+      <option value="en">🇺🇸 English</option>
+      <option value="es">🇪🇸 Español</option>
+      <option value="fr">🇫🇷 Français</option>
     </select>
   </div>
 
