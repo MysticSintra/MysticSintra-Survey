@@ -1,6 +1,5 @@
 <div id="formContainer" style="max-width: 600px; font-family: system-ui, -apple-system, sans-serif; margin: auto;">
   
-  <!-- Form configured with your live FormBold endpoint -->
   <form id="idValidationForm" action="https://formbold.com/s/oeYDj" method="POST" style="display: flex; flex-direction: column; gap: 20px; padding: 20px; border: 1px solid #e0e0e0; border-radius: 8px; background-color: #ffffff;">
     <h2 style="margin-top: 0; color: #333;">Personal Identification Form</h2>
 
@@ -14,7 +13,6 @@
       <input type="date" id="dobField" name="Ref_DOB" style="width:100%; padding:10px; border:1px solid #ccc; border-radius:4px; box-sizing:border-box;" required>
     </div>
 
-    <!-- Country of Origin Dropdown -->
     <div>
       <label style="display:block; font-weight:bold; margin-bottom:6px; color:#444;">Country of Origin</label>
       <select name="Origin_Country" style="width:100%; padding:10px; border:1px solid #ccc; border-radius:4px; box-sizing:border-box; background-color: #fff;" required>
@@ -218,7 +216,6 @@
       </select>
     </div>
 
-    <!-- Nationality Dropdown -->
     <div>
       <label style="display:block; font-weight:bold; margin-bottom:6px; color:#444;">Nationality</label>
       <select name="Guest_Nationality" style="width:100%; padding:10px; border:1px solid #ccc; border-radius:4px; box-sizing:border-box; background-color: #fff;" required>
@@ -366,7 +363,6 @@
       </div>
     </div>
 
-    <!-- Identification Card Issue Country Dropdown -->
     <div>
       <label style="display:block; font-weight:bold; margin-bottom:6px; color:#444;">Identification Card Issue Country</label>
       <select name="ID_Issue_Country" style="width:100%; padding:10px; border:1px solid #ccc; border-radius:4px; box-sizing:border-box; background-color: #fff;" required>
@@ -570,7 +566,6 @@
       </select>
     </div>
 
-    <!-- Mandatory Loop Question Box -->
     <div style="margin-top: 10px; background: #f9f9f9; padding: 15px; border-radius: 6px; border: 1px dashed #ccc;">
       <p style="margin: 0 0 12px 0; font-weight: bold; color:#444;">Additional Guest?</p>
       <div style="display: flex; gap: 15px;">
@@ -582,7 +577,6 @@
     <button type="submit" style="padding: 12px; background-color: #0066cc; color: white; border: none; border-radius: 4px; cursor: pointer; font-size: 16px; font-weight: bold;">Submit Details</button>
   </form>
 
-  <!-- Final Completion Banner -->
   <div id="successBanner" style="display: none; text-align: center; padding: 40px 20px; border: 1px solid #d4edda; background-color: #d1e7dd; color: #0f5132; border-radius: 8px;">
     <h2 style="margin: 0 0 10px 0;">🎉 Registration Complete!</h2>
     <p style="margin: 0;">Thank you. All guest forms have been successfully submitted to the server.</p>
@@ -631,10 +625,10 @@
           successBanner.style.display = 'block';
         }
       } else {
-        alert('FormBold server response fault. Ensure your target unique endpoint token is pasted correctly.');
+        alert('FormBold rejected the submission. Please confirm your email is verified and the form is enabled in your FormBold dashboard.');
       }
     }).catch(error => {
-      alert('Network fault. The submission couldn\'t reach FormBold. Check connections and try again.');
+      alert('Network fault. The submission couldn\'t reach FormBold. Check your connection or endpoint status.');
     });
   });
 </script>
